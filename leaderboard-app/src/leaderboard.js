@@ -15,7 +15,7 @@ const Leaderboard = () => {
         { username: '3rd Place User', score: '1600', imgSrc: 'user_c.jpg' },
     ];
 
-    const listItems = getListItems(value); 
+    const listItems = getListItems(value);
 
     return (
         <Box sx={{ maxWidth: 600, mx: 'auto', mt: 4 }}>
@@ -49,8 +49,9 @@ const Leaderboard = () => {
                         {listItems.map((item, index) => (
                             <ListItem
                                 key={index}
-                                username={item}
-                                isHighlighted={item === "YOU"} // Highlight if the item is "YOU"
+                                rank={item.rank} // Pass rank to ListItem
+                                username={item.username}
+                                isHighlighted={item.username === "YOU"} // Highlight if the item is "YOU"
                             />
                         ))}
                     </Box>
@@ -71,16 +72,17 @@ const UserCard = ({ username, score, imgSrc }) => (
 );
 
 
-const ListItem = ({ username, isHighlighted }) => (
+const ListItem = ({ rank, username, isHighlighted }) => (
     <Box sx={{
         display: 'flex',
         alignItems: 'center',
         p: 1,
         mb: 1,
-        bgcolor: isHighlighted ? 'yellow' : 'grey.200', // Change the background color if highlighted
+        bgcolor: isHighlighted ? 'yellow' : 'grey.200',
         borderRadius: 1,
-        fontWeight: isHighlighted ? 'bold' : 'normal' // Make it bold if highlighted
+        fontWeight: isHighlighted ? 'bold' : 'normal'
     }}>
+        <Typography variant="body2" sx={{ fontWeight: 'bold', mr: 1 }}>{rank}</Typography> {/* Display rank */}
         <Avatar sx={{ bgcolor: 'grey.300', mr: 1 }}>A</Avatar>
         <Typography variant="body2">{username}</Typography>
     </Box>
@@ -88,11 +90,11 @@ const ListItem = ({ username, isHighlighted }) => (
 
 const getListItems = (value) => {
     if (value === 0) { // Assuming 0 corresponds to Friends
-        return ["YOU", "user a", "user b"];
+        return [{ rank: 4, username: "YOU" }, { rank: 5, username: "user a" }, { rank: 6, username: "user b" }];
     } else if (value === 1) { // Assuming 1 corresponds to Nearby
-        return ["user a", "user b", "user c"];
+        return [{ rank: 4, username: "user a" }, { rank: 5, username: "user b" }, { rank: 6, username: "user c" }];
     } else if (value === 2) { // Assuming 2 corresponds to Global
-        return ["user a", "user b", "YOU"];
+        return [{ rank: 4, username: "user a" }, { rank: 5, username: "user b" }, { rank: 1069, username: "YOU" }];
     } else {
         return []; // Default case
     }
