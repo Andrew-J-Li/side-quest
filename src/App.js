@@ -1,12 +1,15 @@
-import React from 'react';
-import './App.css';
-import Quests from './components/quests'; // Import Home component
+import { Routes, Route } from 'react-router-dom';
+
+import Login from './components/Login.js'
+import ResponsiveAppBar from './components/ResponsiveAppBar.js';
 
 function App() {
   return (
-    <div className="App">
-      {/* Render the Home component */}
-      <Quests />
+    <div>
+      <ResponsiveAppBar/>
+      <Routes>
+        <Route path='/' element={<Login/>}/>
+      </Routes>
     </div>
   );
 }
