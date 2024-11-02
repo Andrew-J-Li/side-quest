@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import { Card, CardMedia, CardContent, Typography, Chip, Box, Button } from '@mui/material';
 import '../components/quests.css';
 import gatesDellImage from '../images/gates-dell-complex.jpg';
-import utTowerImage from '../images/ut-tower.png';
 
 const Quests = () => {
     const scrollContainerRef = useRef(null);
