@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <ResponsiveAppBar/>
-      <Routes>
+      <Routes basename='.'>
         <Route path='/' element={<Login/>}/>
         <Route path='/quests' element={<Quests/>}/>
       </Routes>
