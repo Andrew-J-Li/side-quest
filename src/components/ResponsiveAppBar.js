@@ -13,6 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import PlaceIcon from '@mui/icons-material/Place';
 import "@fontsource/mulish";
+import { Link } from 'react-router-dom';
+import { CardActionArea } from "@mui/material";
 
 const pages = ['Quests', 'Leaderboard'];
 
@@ -75,21 +77,23 @@ function ResponsiveAppBar() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography sx={{ color: 'black', textAlign: 'center', fontFamily: 'Mulish'}}>{page}</Typography>
+                <MenuItem key={page} onClick={handleCloseNavMenu} to="quests">
+                    <Typography sx={{ color: 'black', textAlign: 'center', fontFamily: 'Mulish'}}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ mx: 1, my: 2, color: 'black', display: 'block', fontFamily: 'Mulish' }}
-              >
-                {page}
-              </Button>
+                <CardActionArea component={Link} to='quests'>
+                  <Button
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    sx={{ mx: 1, my: 2, color: 'black', display: 'block', fontFamily: 'Mulish' }} to="quests"
+                  >
+                    {page}
+                  </Button>
+                </CardActionArea>
             ))}
           </Box>
           <Box sx={{ ml: 2, flexGrow: 0 }}>
