@@ -1,7 +1,22 @@
-import React from 'react';
-import { Box, Button, Card, CardContent, Typography, Avatar, Tabs, Tab } from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Card, CardContent, Typography, Avatar, Tabs, Tab } from '@mui/material';
 
 const Leaderboard = () => {
+    const [value, setValue] = useState(0); // State to manage the selected tab
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue); // Update the selected tab
+    };
+
+    const users = [
+        { username: '2nd Place User', score: '1601', imgSrc: 'user_b.jpg' },
+        // Conditional rendering based on the selected tab
+        value === 1 ? { username: 'YOU', score: '1602', imgSrc: 'user_a.jpg' } : { username: '1st Place User', score: '1602', imgSrc: 'user_a.jpg' },
+        { username: '3rd Place User', score: '1600', imgSrc: 'user_c.jpg' },
+    ];
+
+    const listItems = getListItems(value); 
+
     return (
         <Box sx={{ maxWidth: 600, mx: 'auto', mt: 4 }}>
             <Card sx={{ display: 'flex', alignItems: 'center', padding: 2, mb: 2 }}>
@@ -18,28 +33,29 @@ const Leaderboard = () => {
 
             <Card>
                 <CardContent>
-                    <Tabs value={0} indicatorColor="primary" textColor="primary" variant="fullWidth">
+                    <Tabs value={value} onChange={handleChange} indicatorColor="primary" textColor="primary" variant="fullWidth">
                         <Tab label="Friends" />
                         <Tab label="Nearby" />
                         <Tab label="Global" />
                     </Tabs>
 
                     <Box sx={{ display: 'flex', justifyContent: 'space-around', mt: 2 }}>
-                        <UserCard username="user b" score="1601" imgSrc="user_b.jpg" />
-                        <UserCard username="user a" score="1602" imgSrc="user_a.jpg" />
-                        <UserCard username="user c" score="1600" imgSrc="user_c.jpg" />
-                    </Box>
-
-                    <Box sx={{ display: 'flex', alignItems: 'center', mt: 4, padding: 1, bgcolor: 'grey.100', borderRadius: 1 }}>
-                        <Avatar sx={{ bgcolor: 'grey.300', mr: 1 }}>A</Avatar>
-                        <Typography variant="h6">YOU</Typography>
+                        {users.map((user, index) => (
+                            <UserCard key={index} username={user.username} score={user.score} imgSrc={user.imgSrc} />
+                        ))}
                     </Box>
 
                     <Box sx={{ mt: 2 }}>
-                        <ListItem username="List item 1" />
-                        <ListItem username="List item 2" />
-                        <ListItem username="List item 3" />
+                        {listItems.map((item, index) => (
+                            <ListItem
+                                key={index}
+                                username={item}
+                                isHighlighted={item === "YOU"} // Highlight if the item is "YOU"
+                            />
+                        ))}
                     </Box>
+
+
                 </CardContent>
             </Card>
         </Box>
@@ -47,18 +63,40 @@ const Leaderboard = () => {
 };
 
 const UserCard = ({ username, score, imgSrc }) => (
-    <Box sx={{ textAlign: 'center' }}>
+    <Box sx={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Avatar alt={username} src={imgSrc} sx={{ width: 60, height: 60, mb: 1 }} />
         <Typography variant="body1">{score}</Typography>
         <Typography variant="body2">{username}</Typography>
     </Box>
 );
 
-const ListItem = ({ username }) => (
-    <Box sx={{ display: 'flex', alignItems: 'center', p: 1, mb: 1, bgcolor: 'grey.200', borderRadius: 1 }}>
+
+const ListItem = ({ username, isHighlighted }) => (
+    <Box sx={{
+        display: 'flex',
+        alignItems: 'center',
+        p: 1,
+        mb: 1,
+        bgcolor: isHighlighted ? 'yellow' : 'grey.200', // Change the background color if highlighted
+        borderRadius: 1,
+        fontWeight: isHighlighted ? 'bold' : 'normal' // Make it bold if highlighted
+    }}>
         <Avatar sx={{ bgcolor: 'grey.300', mr: 1 }}>A</Avatar>
         <Typography variant="body2">{username}</Typography>
     </Box>
 );
+
+const getListItems = (value) => {
+    if (value === 0) { // Assuming 0 corresponds to Friends
+        return ["YOU", "user a", "user b"];
+    } else if (value === 1) { // Assuming 1 corresponds to Nearby
+        return ["user a", "user b", "user c"];
+    } else if (value === 2) { // Assuming 2 corresponds to Global
+        return ["user a", "user b", "YOU"];
+    } else {
+        return []; // Default case
+    }
+};
+
 
 export default Leaderboard;
