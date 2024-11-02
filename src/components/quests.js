@@ -3,6 +3,9 @@ import { Card, CardMedia, CardContent, Typography, Chip, Box, Button } from '@mu
 import '../components/quests.css';
 import gatesDellImage from '../images/gates-dell-complex.jpg';
 import utTowerImage from '../images/ut-tower.png';
+import heartIcon from '../images/heart.png';
+import shareIcon from '../images/share.png';
+import checkIcon from '../images/check.png';
 
 const Quests = () => {
     const scrollContainerRef = useRef(null);
@@ -147,9 +150,10 @@ const Quests = () => {
 
     return (
         <>
-        <div className="main-content">
+        <div className="main-content" style={{marginTop: 40}}>
+            
             <Typography variant="h4" align="center" gutterBottom>
-                Daily Quest
+                <b>Daily Quest</b>
             </Typography>
             <div 
                 className="daily-quests-container"
@@ -162,21 +166,83 @@ const Quests = () => {
                 <img
                     src={gatesDellImage}
                     style={{
-                        width: '450px',
-                        height: '250px',
+                        width: '500px',
+                        height: '300px',
                         objectFit: 'cover',
                         borderRadius: '25px 0 0 25px',
                     }}
                 />
-                <div style={{width: '450px', height: '250px', border: 'solid 1px gray', borderRadius: '0 25px 25px 0'}}>
-                    <p style={{textAlign: 'left', marginLeft: 10, marginRight: 10}}>Explore the iconic Gates-Dell Complex (GDC), home to UT Austin's Computer Science department. This modern architectural marvel houses cutting-edge research labs, collaborative spaces, and the technical heart of campus. Complete this quest by visiting the building and discovering its innovative learning environments.</p>
-                    <Chip 
-                        label='Rare'
-                        color={"warning"}
+                <div style={{width: '500px', height: '300px', border: 'solid 1px gray', borderRadius: '0 25px 25px 0'}}>
+                    <p style={{margin: 10, fontWeight: 'bold', fontSize: '20px'}}>
+                        Visit the Gates-Dell Complex
+                    </p>
+                    <div style={{ textAlign: 'left', marginLeft: 10, marginTop: 0, marginBottom: 0, display: 'flex'}}>
+                        <div>
+                            <Chip 
+                                label='Rare'
+                                color="warning"
+                                style={{
+                                    width: '50px',
+                                    height: '25px',
+                                    fontSize: '12px'
+                                }}
+                            />
+                        </div>
+                        <div style={{marginLeft: 10}}>
+                            <Chip
+                                label='Computer Science'
+                                style={{
+                                    backgroundColor: 'lightblue',
+                                    width: '125px',
+                                    height: '25px',
+                                    fontSize: '12px'
+                                }}
+                            />
+                        </div>
+
+                    </div>
+                    <p style={{textAlign: 'left', marginLeft: 15, marginRight: 15}}>Explore the iconic Gates-Dell Complex (GDC), home to UT Austin's Computer Science department. This modern architectural marvel houses cutting-edge research labs, collaborative spaces, and the technical heart of campus. Complete this quest by visiting the building and discovering its innovative learning environments.</p>
+
+                    <hr style={{marginTop: 10}}>
+                    </hr>
+                    <div style={{textAlign: 'left', marginLeft: 20}}>
+                        <b>3.1k</b> likes <b>1.1k</b> Recruits <b>11.4k</b> Completions
+                    </div>
+                    <hr style={{ marginBottom: 0 }} />
+                    <Box display="flex" justifyContent="space-evenly"
                         style={{
-                            width: '300px'
+                            marginLeft: 20, marginRight: 20, marginTop: 10
                         }}
-                    />
+                    >
+                        <div>
+                            <Button 
+                                variant="text" 
+                                color="primary" 
+                                style={{width: '100px'}}
+                            >
+                                <img
+                                    src={heartIcon}
+                                    style = {{
+                                        width: '40px'
+                                    }}
+                                />
+                            </Button>
+                        </div>
+                        <div>
+                            <Button 
+                                variant="text" 
+                                color="secondary"
+                                style={{width: '100px'}}
+                            >
+                                <img
+                                    src={shareIcon}
+                                    style = {{
+                                        width: '40px'
+                                    }}
+                                />
+                            </Button>
+                        </div>
+                    </Box>
                 </div>
             </div>
         </div>
