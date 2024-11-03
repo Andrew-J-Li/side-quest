@@ -240,34 +240,30 @@ const Quests = () => {
                                 marginLeft: 20, marginRight: 20, marginTop: 0
                             }}
                         >
-                            <div>
-                                <Button 
-                                    variant="text" 
-                                    color="primary" 
-                                    style={{width: '100px'}}
-                                >
-                                    <img
-                                        src={heartIcon}
-                                        style = {{
-                                            width: '40px'
-                                        }}
-                                    />
-                                </Button>
-                            </div>
-                            <div>
-                                <Button 
-                                    variant="text" 
-                                    color="secondary"
-                                    style={{width: '100px'}}
-                                >
-                                    <img
-                                        src={shareIcon}
-                                        style = {{
-                                            width: '40px'
-                                        }}
-                                    />
-                                </Button>
-                            </div>
+                            <Button 
+                                variant="text" 
+                                color="primary" 
+                                style={{width: '100px'}}
+                            >
+                                <img
+                                    src={heartIcon}
+                                    style = {{
+                                        width: '40px'
+                                    }}
+                                />
+                            </Button>
+                            <Button 
+                                variant="text" 
+                                color="secondary"
+                                style={{width: '100px'}}
+                            >
+                                <img
+                                    src={shareIcon}
+                                    style = {{
+                                        width: '40px'
+                                    }}
+                                />
+                            </Button>
                         </Box>
                     </div>
                 </div>

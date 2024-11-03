@@ -78,9 +78,11 @@ function ResponsiveAppBar() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}> 
-                    <Typography sx={{ color: 'black', textAlign: 'center', fontFamily: 'Mulish'}}>{page}</Typography>
-                </MenuItem>
+                <CardActionArea component={Link} to={`${page.toLowerCase()}`}>
+                  <MenuItem key={page} onClick={handleCloseNavMenu}> 
+                      <Typography sx={{ color: 'black', textAlign: 'center', fontFamily: 'Mulish'}}>{page}</Typography>
+                  </MenuItem>
+                </CardActionArea>
               ))}
             </Menu>
           </Box>
