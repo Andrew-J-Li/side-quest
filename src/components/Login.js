@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Box, Typography, TextField, Button, Paper } from '@mui/material';
+import { Container, Box, Typography, TextField, Button, Paper, CardActionArea } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 function LoginPage() {
   return (
@@ -32,20 +33,22 @@ function LoginPage() {
               variant="outlined"
               margin="normal"
             />
-            <Button
-              fullWidth
-              variant="contained"
-              sx={{
-                mt: 2,
-                backgroundColor: '#81F2FF',
-                color: 'black',
-                fontFamily: "Mulish",
-                fontWeight: 'bold',
-                '&:hover': { backgroundColor: '#89cfee' }
-              }}
-            >
-              Sign In
-            </Button>
+            <CardActionArea component={Link} to="/home">
+              <Button
+                fullWidth
+                variant="contained"
+                sx={{
+                  mt: 2,
+                  backgroundColor: '#81F2FF',
+                  color: 'black',
+                  fontFamily: "Mulish",
+                  fontWeight: 'bold',
+                  '&:hover': { backgroundColor: '#89cfee' }
+                }}
+              >
+                Sign In
+              </Button>
+            </CardActionArea>
           </Box>
         </Paper>
       </Box>

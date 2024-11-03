@@ -12,10 +12,11 @@ function App() {
     <div>
       <ResponsiveAppBar />
       <Routes basename='.'>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Login />} />
+        <Route path='/log out' element={<Login />} />
         <Route path='/quests' element={<Quests />} />
         <Route path='/leaderboard' element={<Leaderboard />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/profile' element={<Profile />} />
       </Routes>
     </div>

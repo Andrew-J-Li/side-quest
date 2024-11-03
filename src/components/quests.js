@@ -95,7 +95,8 @@ const Quests = () => {
                             label={rarity}
                             color={rarity === "Rare" ? "warning" : "primary"}
                             style={{
-                                margin: 5,
+                                marginLeft: 0,
+                                marginRight: 2,
                                 height: '25px',
                                 fontSize: '12px',
                                 fontFamily: 'Mulish, sans-serif'
@@ -144,7 +145,7 @@ const Quests = () => {
 
                     <hr style={{ margin: '5px 0', border: '1px solid #ccc' }} />
                 
-                    <div style={{ display: 'flex', justifyContent: 'center', margin: 0, padding: 0 }}>
+                    <div style={{ display: 'flex', justifyContent: 'center', margin: 0, paddingTop: 5 }}>
                         <Button 
                             variant="text" 
                             color="primary" 
@@ -175,7 +176,7 @@ const Quests = () => {
 
     return (
         <>
-        <div style={{paddingLeft: '100px', paddingRight: '100px', display: 'flex', justifyContent: 'center'}}>
+        <div style={{paddingLeft: '100px', paddingRight: '100px', display: 'flex', justifyContent: 'center', marginBottom: '20px'}}>
             <div className="main-content" style={{textAlign: 'left', width: 'fit-content'}}>
                 <Typography variant="h4" align="left" gutterBottom>
                     <b style={{fontFamily: 'Mulish, sans-serif'}}>Daily Quest</b>
@@ -191,6 +192,7 @@ const Quests = () => {
                     <div style={{width: '50%', float: 'left'}}>
                         <img
                             src={gatesDellImage}
+                            alt="Gates Dell Complex"
                             style={{
                                 width: '100%',
                                 height: '100%',
@@ -200,10 +202,10 @@ const Quests = () => {
                         />
                     </div>
                     <div style={{width: '50%', float: 'right', border: 'solid 1px gray', borderRadius: '0 25px 25px 0'}}>
-                        <p style={{margin: 10, fontWeight: 'bold', fontSize: '20px'}}>
+                        <p style={{margin: 15, fontWeight: 'bold', fontSize: '20px'}}>
                             Visit the Gates-Dell Complex
                         </p>
-                        <div style={{ textAlign: 'left', marginLeft: 10, marginTop: 0, marginBottom: 0, display: 'flex'}}>
+                        <div style={{ textAlign: 'left', marginLeft: 15, marginTop: 0, marginBottom: 0, display: 'flex'}}>
                             <div>
                                 <Chip 
                                     label='Rare'
@@ -282,7 +284,7 @@ const Quests = () => {
                 </div>
             </div>
         </div>
-        <div className="main-content" style={{marginLeft: '100px', marginRight: '100px'}}>
+        <div className="main-content" style={{marginLeft: '100px', marginRight: '100px', marginBottom: '20px'}}>
             <Typography variant="h4" align="left" gutterBottom>
                 <b style={{fontFamily: 'Mulish, sans-serif'}}>
                     Limited Time Quests
