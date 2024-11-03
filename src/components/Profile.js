@@ -3,10 +3,10 @@ import { Box, Card, CardContent, Typography } from '@mui/material';
 import TokenTwoToneIcon from '@mui/icons-material/TokenTwoTone';
 import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import AnimatedBar from './AnimatedBar';
-import HeatmapOverlay from './HeatMapOverlay';
+import HeatMap from './HeatMap';
 
   function Profile() {
-    const neonColor = 'rgba(0, 115, 186, 0.1)'; // Define your neon color here
+    const neonColor = 'rgba(0, 115, 186, 0.2)'; // Define your neon color here
 
     return (
       <Box 
@@ -49,7 +49,7 @@ import HeatmapOverlay from './HeatMapOverlay';
                 Rank 50,000
               </Typography>
               <Typography variant="h6" align="center" sx={{ fontSize: '1.2em' }}> {/* Adjust font size */}
-                🔥 <span style={{ fontSize: '1.4em', fontWeight: 'bold'}}>15</span> day streak
+                <span style={{ fontSize: '1.4em', fontWeight: 'bold'}}>🔥 15</span> day streak
               </Typography>
               <Typography variant="h6" align="center" sx={{ fontSize: '1.2em' }}> {/* Adjust font size */}
                 <span style={{ fontSize: '1.4em', fontWeight: 'bold'}}>20</span> quests completed
@@ -81,7 +81,7 @@ import HeatmapOverlay from './HeatMapOverlay';
               <Typography variant="h5" component="div" align="center">
                 Campus Heat Map
               </Typography>
-              <HeatmapOverlay />
+              <HeatMap />
             </CardContent>
           </Card>
         </Box>
@@ -95,7 +95,7 @@ import HeatmapOverlay from './HeatMapOverlay';
             padding: 1,
             boxShadow: `0 0 5px ${neonColor}, 0 0 10px ${neonColor}, 0 0 15px ${neonColor}`,
             '&:hover': {
-              boxShadow: `0 0 10px ${neonColor}, 0 0 20px ${neonColor}, 0 0 30px ${neonColor}`,
+              boxShadow: `0 0 20px ${neonColor}, 0 0 40px ${neonColor}, 0 0 45px ${neonColor}`,
             },
           }}
         >
