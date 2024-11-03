@@ -16,7 +16,7 @@ import "@fontsource/mulish";
 import { Link } from 'react-router-dom';
 import { CardActionArea } from "@mui/material";
 
-const pages = ['Quests', 'Leaderboard'];
+const pages = ['Quests', 'Leaderboard', 'Login'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -78,9 +78,11 @@ function ResponsiveAppBar() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}> 
-                    <Typography sx={{ color: 'black', textAlign: 'center', fontFamily: 'Mulish'}}>{page}</Typography>
-                </MenuItem>
+                <CardActionArea component={Link} to={`${page.toLowerCase()}`}>
+                  <MenuItem key={page} onClick={handleCloseNavMenu}> 
+                      <Typography sx={{ color: 'black', textAlign: 'center', fontFamily: 'Mulish'}}>{page}</Typography>
+                  </MenuItem>
+                </CardActionArea>
               ))}
             </Menu>
           </Box>
