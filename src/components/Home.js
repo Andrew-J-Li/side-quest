@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography, Card, CardContent, Avatar, List, ListItem, ListItemAvatar, ListItemText, Button, Grid2, Paper } from '@mui/material';
 import { Star as StarIcon } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import CommentIcon from '@mui/icons-material/Comment';
 import DailyPollCard from './DailyPollCard';
@@ -47,7 +48,7 @@ const HomePage = () => {
     ];      
 
     return (
-        <Box sx={{ mx: 'auto', maxWidth: 1000, pb: 3 }}>
+        <Box sx={{ mx: 'auto', maxWidth: 1200, pb: 3 }}>
             {/* Featured Quest Banner */}
             <Paper
                 variant="outlined"
@@ -63,7 +64,9 @@ const HomePage = () => {
                     <StarIcon sx={{ mr: 1, color: 'yellow' }} /> Featured Quest: Longhorn Halloween
                 </Typography>
                 <Typography fontFamily='mulish' variant="body1">Complete quests and earn limited badges!</Typography>
-                <Button variant="contained" color="secondary" sx={{ mt: 2 }}>Enter Now</Button>
+                <Link to="/quests">
+                    <Button variant="contained" color="secondary" sx={{ mt: 2 }}>Enter Now</Button>
+                </Link>
             </Paper>
 
             <Grid2 container spacing={3} justifyContent="center">
