@@ -4,6 +4,7 @@ import Login from './components/Login.js'
 import Quests from './components/quests.js'
 import Leaderboard from './components/leaderboard.js'
 import Profile from './components/Profile.js'
+import MongoTest from './components/MongoTest.js'
 import ResponsiveAppBar from './components/ResponsiveAppBar.js';
 
 function App() {
@@ -11,10 +12,7 @@ function App() {
     <div>
       <ResponsiveAppBar/>
       <Routes basename='.'>
-        <Route path='/' element={<Login/>}/>
-        <Route path='/quests' element={<Quests/>}/>
-        <Route path='/leaderboard' element={<Leaderboard/>}/>
-        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/' element={<MongoTest/>}/>
       </Routes>
     </div>
   );

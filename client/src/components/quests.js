@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Card, CardMedia, CardContent, Typography, Chip, Box, Button } from '@mui/material';
-import '../components/quests.css';
+import './quests.css';
 import gatesDellImage from '../images/gates-dell-complex.jpg';
 import utTowerImage from '../images/ut-tower.png';
 import heartIcon from '../images/heart.png';
