@@ -54,8 +54,8 @@ const HomePage = () => {
                 <Typography fontFamily='mulish' variant="h5" sx={{ fontWeight: 'bold', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <StarIcon sx={{ mr: 1, color: 'yellow' }} /> Featured Quest: Longhorn Halloween
                 </Typography>
-                <Typography fontFamily='mulish' variant="body1">Complete challenges and earn exclusive rewards!</Typography>
-                <Button variant="contained" color="secondary" sx={{ mt: 2 }}>Join Now</Button>
+                <Typography fontFamily='mulish' variant="body1">Complete quests and earn limited badges!</Typography>
+                <Button variant="contained" color="secondary" sx={{ mt: 2 }}>Enter Now</Button>
             </Paper>
 
             <Grid2 container spacing={3} justifyContent="center">
