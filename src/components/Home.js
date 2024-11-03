@@ -112,6 +112,21 @@ const QuestCard = ({ image, title, rarity, likes, shares, completes, category}) 
 
 const HomePage = () => {
     const [fetchedAchievements, setRecentAchievements] = useState([]);
+    const [value, setValue] = useState('')
+    const [quest, setQuest] = useState('')
+
+    const handleClear = () => {
+        setValue('')
+        setQuest('')
+    }
+
+    const handleSearch = (event) => {
+        setValue(event.target.value)
+    }
+
+    const handleQuest = (event) => {
+        setQuest(event.target.value)
+    }
 
     useEffect(() => {
         const fetchedAchievements = [
@@ -297,21 +312,26 @@ const HomePage = () => {
                         <Box component="form" noValidate autoComplete="off">
                             <TextField
                             fullWidth
+                            value={quest}
                             label="Quest Name"
                             variant="outlined"
                             margin="normal"
+                            onChange={handleQuest}
                             />
                             <TextField
+                            value={value}
                             multiline
                             fullWidth
                             label="Description"
                             rows={4}
                             variant="outlined"
                             margin="normal"
+                            onChange={handleSearch}
                             sx = {{mb: 2}}
                             />
                             <CardActionArea component={Link} to="/home">
                             <Button
+                                onClick = {handleClear}
                                 fullWidth
                                 variant="contained"
                                 sx={{
