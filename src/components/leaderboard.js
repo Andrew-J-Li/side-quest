@@ -66,7 +66,7 @@ const Leaderboard = () => {
     ];
     
     const leaderboardJEN = [
-        { rank: 1, username: 'Robin', time: '12:30' },
+        { rank: 1, username: 'Andrew', time: '12:30' },
         { rank: 2, username: 'Jordan', time: '12:10' },
         { rank: 3, username: 'Chris', time: '11:55' },
         { rank: 4, username: 'Blake', time: '11:50' },

@@ -9,7 +9,7 @@ import utTowerImage from '../images/ut-tower.png';
 
 const QuestCard = ({ image, title, rarity, likes, shares, completes, category}) => {
     return (
-        <Card className="quest-card" style={{ height: '380px', width: 'auto', transition: 'transform 0.3s ease'}}>
+        <Card variant="outlined" className="quest-card" style={{ height: '380px', width: 'auto', transition: 'transform 0.3s ease'}}>
             <CardMedia
                 component="img"
                 height="140"
@@ -308,13 +308,13 @@ const HomePage = () => {
                             rows={4}
                             variant="outlined"
                             margin="normal"
+                            sx = {{mb: 2}}
                             />
                             <CardActionArea component={Link} to="/home">
                             <Button
                                 fullWidth
                                 variant="contained"
                                 sx={{
-                                mt: 2,
                                 backgroundColor: '#81F2FF',
                                 color: 'black',
                                 fontFamily: "Mulish",

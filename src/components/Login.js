@@ -32,13 +32,13 @@ function LoginPage() {
               type="password"
               variant="outlined"
               margin="normal"
+              sx = {{mb: 2}}
             />
             <CardActionArea component={Link} to="/home">
               <Button
                 fullWidth
                 variant="contained"
                 sx={{
-                  mt: 2,
                   backgroundColor: '#81F2FF',
                   color: 'black',
                   fontFamily: "Mulish",

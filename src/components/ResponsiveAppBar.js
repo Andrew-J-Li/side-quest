@@ -15,6 +15,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import "@fontsource/mulish";
 import { Link } from 'react-router-dom';
 import { CardActionArea } from "@mui/material";
+import userPfp from '../images/user-pfp.webp';
 
 const pages = ['Quests', 'Leaderboard'];
 const settings = ['Profile', 'Log Out'];
@@ -113,7 +114,13 @@ function ResponsiveAppBar() {
             <Box sx={{ ml: 2, flexGrow: 0 }}>
               <Tooltip title="Profile">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                  <Avatar
+                    src={userPfp}
+                    sx={{
+                        bgcolor: 'grey.300',
+                        margin: 'auto 0',
+                    }}
+                />
                 </IconButton>
               </Tooltip>
               <Menu
