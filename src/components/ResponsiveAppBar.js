@@ -30,6 +30,7 @@ function ResponsiveAppBar() {
   };
 
   return (
+    <>
     <AppBar position="sticky" sx={{ bgcolor: "#81F2FF", boxShadow: '0 0 5px #81F2FF, 0 0 70px #81F2FF, 0 0 75px #81F2FF', border: 'solid 1px black',}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -77,15 +78,17 @@ function ResponsiveAppBar() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu} to="quests">
-                    <Typography sx={{ color: 'black', textAlign: 'center', fontFamily: 'Mulish'}}>{page}</Typography>
-                </MenuItem>
+                <CardActionArea component={Link} to={`${page.toLowerCase()}`}>
+                  <MenuItem key={page} onClick={handleCloseNavMenu}> 
+                      <Typography sx={{ color: 'black', textAlign: 'center', fontFamily: 'Mulish'}}>{page}</Typography>
+                  </MenuItem>
+                </CardActionArea>
               ))}
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-                <CardActionArea component={Link} to='quests'>
+                <CardActionArea component={Link} to={`${page.toLowerCase()}`}>
                   <Button
                     key={page}
                     onClick={handleCloseNavMenu}
@@ -98,14 +101,18 @@ function ResponsiveAppBar() {
           </Box>
           <Box sx={{ ml: 2, flexGrow: 0 }}>
             <Tooltip title="Profile">
-              <IconButton sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
+              <CardActionArea component={Link} to='profile'>
+                <IconButton sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </CardActionArea>
             </Tooltip>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
+    <Box sx={{margin: 9}}/>
+    </>
   );
 }
 export default ResponsiveAppBar;

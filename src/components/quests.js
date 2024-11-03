@@ -1,9 +1,24 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Card, CardMedia, CardContent, Typography, Chip, Box, Button } from '@mui/material';
 import '../components/quests.css';
 import gatesDellImage from '../images/gates-dell-complex.jpg';
+import utTowerImage from '../images/ut-tower.png';
+import heartIcon from '../images/heart.png';
+import shareIcon from '../images/share.png';
 
 const Quests = () => {
+    useEffect(() => {
+        const link = document.createElement('link');
+        link.href = 'https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap';
+        link.rel = 'stylesheet';
+        document.head.appendChild(link);
+
+        // Cleanup the effect if needed
+        return () => {
+            document.head.removeChild(link);
+        };
+    }, []);
+
     const scrollContainerRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
@@ -46,142 +61,219 @@ const Quests = () => {
         scrollContainerRef.current.scrollLeft = scrollLeft - walk;
     };
 
-    // Separate component for action buttons to prevent drag interference
-    const ActionButtons = ({ onLike, onShare, onComplete }) => {
-        const handleButtonClick = (e, action) => {
-            e.stopPropagation(); // Prevent event from bubbling up
-            action();
-        };
-
+    const QuestCard = ({ image, title, rarity, likes, shares, completes, category}) => {
         return (
-            <Box 
-                display="flex" 
-                justifyContent="space-between" 
-                mt={2} 
-                className="action-buttons"
-            >
-                <Button 
-                    variant="outlined" 
-                    color="primary" 
-                    onClick={(e) => handleButtonClick(e, onLike)}
-                >
-                    Like
-                </Button>
-                <Button 
-                    variant="outlined" 
-                    color="secondary" 
-                    onClick={(e) => handleButtonClick(e, onShare)}
-                >
-                    Share
-                </Button>
-                <Button 
-                    variant="contained" 
-                    color="success" 
-                    onClick={(e) => handleButtonClick(e, onComplete)}
-                >
-                    Complete
-                </Button>
-            </Box>
-        );
-    };
-
-    const QuestCard = ({ image, title, rarity }) => {
-        const handleCardLike = () => {
-            console.log(`Liked: ${title}`);
-            alert(`Liked: ${title}!`);
-        };
-
-        const handleCardShare = () => {
-            console.log(`Shared: ${title}`);
-            alert(`Shared: ${title}!`);
-        };
-
-        const handleCardComplete = () => {
-            console.log(`Completed: ${title}`);
-            alert(`Quest Completed: ${title}!`);
-        };
-
-        return (
-            <Card className="quest-card">
+            <Card className="quest-card" style={{ height: '380px' }}>
                 <CardMedia
                     component="img"
                     height="140"
                     image={image}
                     alt={title}
+                    style={{ objectFit: 'cover', height: '150px', margin: 0, padding: 0 }}
                 />
-                <CardContent>
-                    <Typography 
-                        variant="h5" 
-                        component="div" 
-                        className="quest-title"
-                        gutterBottom
-                    >
-                        {title}
-                    </Typography>
-                    <Chip 
-                        label={rarity} 
-                        color={rarity === "Rare" ? "warning" : "primary"} 
-                        className="quest-rarity"
-                    />
-                    <Box display="flex" justifyContent="space-between" mt={2}>
-                        <Typography variant="body2" color="text.secondary">
-                            <span className="icon">❤️</span>3.1k
+                <CardContent style={{marginLeft: 5, padding: 5 }}>
+                    <div>
+                        <Typography
+                            fontFamily="Mulish, sans-serif"
+                            fontSize="20px"
+                            fontWeight="bold"
+                            style={{ margin: '0', padding: '0' }}
+                        >
+                            {title}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            <span className="icon">🔁</span>0.4k
+                        <div>
+                        <Chip 
+                            label={rarity}
+                            color={rarity === "Rare" ? "warning" : "primary"}
+                            style={{
+                                margin: 5,
+                                height: '25px',
+                                fontSize: '12px',
+                                fontFamily: 'Mulish, sans-serif'
+                            }}
+                        />
+                        <Chip 
+                            label={category}
+                            style={{
+                                backgroundColor: 'lightblue',
+                                margin: 5,
+                                height: '25px',
+                                fontSize: '12px',
+                                fontFamily: 'Mulish, sans-serif'
+                            }}
+                        />
+                        </div>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '10px'}}>
+                        <Button
+                            variant='contained'
+                        >
+                            <b
+                                style={{
+                                    color: 'white',
+                                    fontFamily: 'Mulish, sans-serif'
+                                }}
+                            >
+                                Start
+                            </b>
+                        </Button>
+                    </div>
+
+                    <hr style={{ margin: '5px 0', border: '1px solid #ccc' }} />
+
+                    <div>
+                        <Typography
+                            fontFamily="Mulish, sans-serif"
+                            fontSize="20px"
+                            style={{ margin: '0', padding: '0' }}
+                        >
+                        <b style={{ fontSize: '14px' }}>{likes}</b>&nbsp;<span style={{ fontSize: '14px' }}>likes</span>&nbsp;
+                        <b style={{ fontSize: '14px' }}>{shares}</b>&nbsp;<span style={{ fontSize: '14px' }}>shares</span>&nbsp;
+                        <b style={{ fontSize: '14px' }}>{completes}</b>&nbsp;<span style={{ fontSize: '14px' }}>completes</span>
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            <span className="icon">▶️</span>7.1k
-                        </Typography>
-                    </Box>
-                    <ActionButtons 
-                        onLike={handleCardLike}
-                        onShare={handleCardShare}
-                        onComplete={handleCardComplete}
-                    />
+                    </div>
+
+                    <hr style={{ margin: '5px 0', border: '1px solid #ccc' }} />
+                
+                    <div style={{ display: 'flex', justifyContent: 'center', margin: 0, padding: 0 }}>
+                        <Button variant="text" color="primary" style={{ width: '100px' }}>
+                            <img
+                                src={heartIcon}
+                                style={{ height: '40px', width: 'auto' }}
+                                alt="Heart Icon"
+                            />
+                        </Button>
+                        <Button variant="text" color="secondary" style={{ width: '100px' }}>
+                            <img
+                                src={shareIcon}
+                                style={{ height: '40px', width: 'auto' }}
+                                alt="Share Icon"
+                            />
+                        </Button>
+                    </div>
                 </CardContent>
             </Card>
         );
     };
 
+
     return (
         <>
-        <div className="main-content">
-            <Typography variant="h4" align="center" gutterBottom>
-                Daily Quest
-            </Typography>
-            <div 
-                className="daily-quests-container"
-                ref={scrollContainerRef}
-                onMouseDown={handleMouseDown}
-                onMouseLeave={handleMouseLeave}
-                onMouseUp={handleMouseUp}
-                onMouseMove={handleMouseMove}
-            >
-                <img
-                    src={gatesDellImage}
-                    style={{
-                        width: '450px',
-                        height: '250px',
-                        objectFit: 'cover',
-                        borderRadius: '25px 0 0 25px',
-                    }}
-                />
-                <div style={{width: '450px', height: '250px', border: 'solid 1px gray', borderRadius: '0 25px 25px 0'}}>
-                    <p style={{textAlign: 'left', marginLeft: 10, marginRight: 10}}>Explore the iconic Gates-Dell Complex (GDC), home to UT Austin's Computer Science department. This modern architectural marvel houses cutting-edge research labs, collaborative spaces, and the technical heart of campus. Complete this quest by visiting the building and discovering its innovative learning environments.</p>
-                    <Chip 
-                        label='Rare'
-                        color={"warning"}
-                        style={{
-                            width: '300px'
-                        }}
-                    />
+        <div style={{paddingLeft: '100px', paddingRight: '100px', display: 'flex', justifyContent: 'center'}}>
+            <div className="main-content" style={{textAlign: 'left', width: 'fit-content'}}>
+                <Typography variant="h4" align="left" gutterBottom>
+                    <b style={{fontFamily: 'Mulish, sans-serif'}}>Daily Quest</b>
+                </Typography>
+                <div 
+                    className="daily-quests-container"
+                    ref={scrollContainerRef}
+                    onMouseDown={handleMouseDown}
+                    onMouseLeave={handleMouseLeave}
+                    onMouseUp={handleMouseUp}
+                    onMouseMove={handleMouseMove}
+                >
+                    <div style={{width: '50%', float: 'left'}}>
+                        <img
+                            src={gatesDellImage}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                borderRadius: '25px 0 0 25px',
+                            }}
+                        />
+                    </div>
+                    <div style={{width: '50%', float: 'right', border: 'solid 1px gray', borderRadius: '0 25px 25px 0'}}>
+                        <p style={{margin: 10, fontWeight: 'bold', fontSize: '20px'}}>
+                            Visit the Gates-Dell Complex
+                        </p>
+                        <div style={{ textAlign: 'left', marginLeft: 10, marginTop: 0, marginBottom: 0, display: 'flex'}}>
+                            <div>
+                                <Chip 
+                                    label='Rare'
+                                    color="warning"
+                                    style={{
+                                        width: '55px',
+                                        height: '25px',
+                                        fontSize: '12px',
+                                        fontFamily: 'Mulish, sans-serif'
+                                    }}
+                                />
+                            </div>
+                            <div style={{marginLeft: 10}}>
+                                <Chip
+                                    label='Computer Science'
+                                    style={{
+                                        backgroundColor: 'lightblue',
+                                        width: '125px',
+                                        height: '25px',
+                                        fontSize: '12px',
+                                        fontFamily: 'Mulish, sans-serif'
+                                    }}
+                                />
+                            </div>
+
+                        </div>
+                        <p style={{textAlign: 'left', marginLeft: 15, marginRight: 15, fontFamily: 'Mulish, sans-serif'}}>Explore the iconic Gates-Dell Complex (GDC), home to UT Austin's Computer Science department. This modern architectural marvel houses cutting-edge research labs, collaborative spaces, and the technical heart of campus. Complete this quest by visiting the building and discovering its innovative learning environments.</p>
+                        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '20px' }}>
+                            <Button
+                                variant='contained'
+                            >
+                                <b
+                                    style={{
+                                        color: 'white',
+                                        fontFamily: 'Mulish, sans-serif'
+                                    }}
+                                >
+                                    Start
+                                </b>
+                            </Button>
+                        </div>
+                        <hr style={{marginTop: 10}}>
+                        </hr>
+                        <div style={{textAlign: 'left', marginLeft: 20, fontFamily: 'Mulish, sans-serif'}}>
+                            <b>3.1k</b> likes <b>1.1k</b> Recruits <b>11.4k</b> Completions
+                        </div>
+                        <hr style={{ marginBottom: 0 }} />
+                        <Box display="flex" justifyContent="space-evenly"
+                            style={{
+                                marginLeft: 20, marginRight: 20, marginTop: 0
+                            }}
+                        >
+                            <Button 
+                                variant="text" 
+                                color="primary" 
+                                style={{width: '100px'}}
+                            >
+                                <img
+                                    src={heartIcon}
+                                    style = {{
+                                        width: '40px'
+                                    }}
+                                />
+                            </Button>
+                            <Button 
+                                variant="text" 
+                                color="secondary"
+                                style={{width: '100px'}}
+                            >
+                                <img
+                                    src={shareIcon}
+                                    style = {{
+                                        width: '40px'
+                                    }}
+                                />
+                            </Button>
+                        </Box>
+                    </div>
                 </div>
             </div>
         </div>
         <div className="main-content">
             <Typography variant="h4" align="center" gutterBottom>
-                All Quests
+                <b style={{fontFamily: 'Mulish, sans-serif'}}>
+                    All Quests
+                </b>
             </Typography>
             <div 
                 className="quests-container"
@@ -195,6 +287,19 @@ const Quests = () => {
                     image={gatesDellImage} 
                     title="Visit the Gates-Dell Complex"
                     rarity="Rare"
+                    likes="3.1k"
+                    shares="1.1k"
+                    completes="11.4k"
+                    category="Computer Science"
+                />
+                <QuestCard
+                    image={utTowerImage}
+                    title="Visit the UT Tower"
+                    rarity="Common"
+                    likes="14.7k"
+                    shares="5.5k"
+                    completes="25.2k"
+                    category="General"
                 />
                 {/* Add more quest cards as needed */}
             </div>
