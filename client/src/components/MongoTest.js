@@ -5,7 +5,12 @@ const MongoTest = () => {
 
 	useEffect(() => {
 		async function getUsers() {
-			const response = await fetch(`https://side-quest-backend.onrender.com/users/`)
+			const response = await fetch(`https://side-quest-backend.onrender.com/users/`, {
+				method: 'GET',
+				headers: {
+				  'Access-Control-Allow-Origin': '*',
+				  'Content-Type': 'application/json'
+				}})
 
 			if(!response.ok){
 				const message = `An error ocurred: ${response.statusText}`
