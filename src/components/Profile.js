@@ -2,7 +2,6 @@ import React from 'react';
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import TokenTwoToneIcon from '@mui/icons-material/TokenTwoTone';
 import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
-import utMap from '../images/ut-map.png';
 import AnimatedBar from './AnimatedBar';
 import HeatmapOverlay from './HeatMapOverlay';
 

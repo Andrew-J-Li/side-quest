@@ -99,9 +99,11 @@ function ResponsiveAppBar() {
           </Box>
           <Box sx={{ ml: 2, flexGrow: 0 }}>
             <Tooltip title="Profile">
-              <IconButton sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
+              <CardActionArea component={Link} to='profile'>
+                <IconButton sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </CardActionArea>
             </Tooltip>
           </Box>
         </Toolbar>
