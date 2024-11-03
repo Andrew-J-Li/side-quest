@@ -34,7 +34,7 @@ const HomePage = () => {
           profilePicture: "https://wallpapers.com/images/hd/cool-anime-girl-pfp-hu-tao-6cjtrrhyvr2g24ik.jpg", // Replace with actual image URL
           postImage: require("../images/pma-top.JPG"),
           title: "Visited the top of the PMA!",
-          description: "Almost got some people to jump.",
+          description: "The view of the campus was beautiful!",
         },
         {
         id: 2,

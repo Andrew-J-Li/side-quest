@@ -13,6 +13,7 @@ function App() {
       <ResponsiveAppBar />
       <Routes basename='.'>
         <Route path='/' element={<Login />} />
+        <Route path='/log out' element={<Login />} />
         <Route path='/quests' element={<Quests />} />
         <Route path='/leaderboard' element={<Leaderboard />} />
         <Route path='/home' element={<Home />} />

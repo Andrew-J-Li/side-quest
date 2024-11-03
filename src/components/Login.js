@@ -33,11 +33,10 @@ function LoginPage() {
               variant="outlined"
               margin="normal"
             />
-            <CardActionArea component={Link} to="home">
+            <CardActionArea component={Link} to="/home">
               <Button
                 fullWidth
                 variant="contained"
-                to="home"
                 sx={{
                   mt: 2,
                   backgroundColor: '#81F2FF',
