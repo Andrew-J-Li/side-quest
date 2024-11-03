@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Card, CardMedia, CardContent, Typography, Chip, Box, Button } from '@mui/material';
 import '../components/quests.css';
 import gatesDellImage from '../images/gates-dell-complex.jpg';
-import utTowerImage from '../images/ut-tower.png';
 import heartIcon from '../images/heart.png';
 import shareIcon from '../images/share.png';
 
@@ -61,61 +60,7 @@ const Quests = () => {
         scrollContainerRef.current.scrollLeft = scrollLeft - walk;
     };
 
-    // Separate component for action buttons to prevent drag interference
-    const ActionButtons = ({ onLike, onShare, onComplete }) => {
-        const handleButtonClick = (e, action) => {
-            e.stopPropagation(); // Prevent event from bubbling up
-            action();
-        };
-
-        return (
-            <Box 
-                display="flex" 
-                justifyContent="space-between" 
-                mt={2} 
-                className="action-buttons"
-            >
-                <Button 
-                    variant="outlined" 
-                    color="primary" 
-                    onClick={(e) => handleButtonClick(e, onLike)}
-                >
-                    Like
-                </Button>
-                <Button 
-                    variant="outlined" 
-                    color="secondary" 
-                    onClick={(e) => handleButtonClick(e, onShare)}
-                >
-                    Share
-                </Button>
-                <Button 
-                    variant="contained" 
-                    color="success" 
-                    onClick={(e) => handleButtonClick(e, onComplete)}
-                >
-                    Complete
-                </Button>
-            </Box>
-        );
-    };
-
     const QuestCard = ({ image, title, rarity }) => {
-        const handleCardLike = () => {
-            console.log(`Liked: ${title}`);
-            alert(`Liked: ${title}!`);
-        };
-
-        const handleCardShare = () => {
-            console.log(`Shared: ${title}`);
-            alert(`Shared: ${title}!`);
-        };
-
-        const handleCardComplete = () => {
-            console.log(`Completed: ${title}`);
-            alert(`Quest Completed: ${title}!`);
-        };
-
         return (
             <Card className="quest-card">
                 <CardMedia
@@ -138,14 +83,14 @@ const Quests = () => {
                         color={rarity === "Rare" ? "warning" : "primary"} 
                         className="quest-rarity"
                     />
-                    <div styles={{display: 'flex', justifyContent: 'center'}}>
+                    <div style={{marginTop: '5px', display: 'flex', justifyContent: 'space-around'}}>
                         <Button 
                             variant="text" 
                             color="primary" 
-                            style={{width: '100px'}}
                         >
                             <img
                                 src={heartIcon}
+                                alt='Heart'
                                 style = {{
                                     width: '40px'
                                 }}
@@ -154,15 +99,15 @@ const Quests = () => {
                         <Button 
                             variant="text" 
                             color="secondary"
-                            style={{width: '100px'}}
                         >
                             <img
                                 src={shareIcon}
+                                alt='Share'
                                 style = {{
                                     width: '40px'
                                 }}
                             />
-                    </Button>
+                        </Button>
                     </div>
                 </CardContent>
             </Card>
@@ -171,115 +116,117 @@ const Quests = () => {
 
     return (
         <>
-        <div className="main-content" style={{textAlign: 'left'}}>
-            
-            <Typography variant="h4" align="left" gutterBottom>
-                <b style={{marginLeft: 120, fontFamily: 'Mulish, sans-serif'}}>Daily Quest</b>
-            </Typography>
-            <div 
-                className="daily-quests-container"
-                ref={scrollContainerRef}
-                onMouseDown={handleMouseDown}
-                onMouseLeave={handleMouseLeave}
-                onMouseUp={handleMouseUp}
-                onMouseMove={handleMouseMove}
-            >
-                <img
-                    src={gatesDellImage}
-                    style={{
-                        width: '600px',
-                        height: '340px',
-                        objectFit: 'cover',
-                        borderRadius: '25px 0 0 25px',
-                    }}
-                />
-                <div style={{width: '600px', height: '340px', border: 'solid 1px gray', borderRadius: '0 25px 25px 0'}}>
-                    <p style={{margin: 10, fontWeight: 'bold', fontSize: '20px'}}>
-                        Visit the Gates-Dell Complex
-                    </p>
-                    <div style={{ textAlign: 'left', marginLeft: 10, marginTop: 0, marginBottom: 0, display: 'flex'}}>
-                        <div>
-                            <Chip 
-                                label='Rare'
-                                color="warning"
-                                style={{
-                                    width: '55px',
-                                    height: '25px',
-                                    fontSize: '12px',
-                                    fontFamily: 'Mulish, sans-serif'
-                                }}
-                            />
-                        </div>
-                        <div style={{marginLeft: 10}}>
-                            <Chip
-                                label='Computer Science'
-                                style={{
-                                    backgroundColor: 'lightblue',
-                                    width: '125px',
-                                    height: '25px',
-                                    fontSize: '12px',
-                                    fontFamily: 'Mulish, sans-serif'
-                                }}
-                            />
-                        </div>
+        <div style={{paddingLeft: '100px', paddingRight: '100px', display: 'flex', justifyContent: 'center'}}>
+            <div className="main-content" style={{textAlign: 'left', width: 'fit-content'}}>
+                <Typography variant="h4" align="left" gutterBottom>
+                    <b style={{fontFamily: 'Mulish, sans-serif'}}>Daily Quest</b>
+                </Typography>
+                <div 
+                    className="daily-quests-container"
+                    ref={scrollContainerRef}
+                    onMouseDown={handleMouseDown}
+                    onMouseLeave={handleMouseLeave}
+                    onMouseUp={handleMouseUp}
+                    onMouseMove={handleMouseMove}
+                >
+                    <div style={{width: '50%', float: 'left'}}>
+                        <img
+                            src={gatesDellImage}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                borderRadius: '25px 0 0 25px',
+                            }}
+                        />
+                    </div>
+                    <div style={{width: '50%', float: 'right', border: 'solid 1px gray', borderRadius: '0 25px 25px 0'}}>
+                        <p style={{margin: 10, fontWeight: 'bold', fontSize: '20px'}}>
+                            Visit the Gates-Dell Complex
+                        </p>
+                        <div style={{ textAlign: 'left', marginLeft: 10, marginTop: 0, marginBottom: 0, display: 'flex'}}>
+                            <div>
+                                <Chip 
+                                    label='Rare'
+                                    color="warning"
+                                    style={{
+                                        width: '55px',
+                                        height: '25px',
+                                        fontSize: '12px',
+                                        fontFamily: 'Mulish, sans-serif'
+                                    }}
+                                />
+                            </div>
+                            <div style={{marginLeft: 10}}>
+                                <Chip
+                                    label='Computer Science'
+                                    style={{
+                                        backgroundColor: 'lightblue',
+                                        width: '125px',
+                                        height: '25px',
+                                        fontSize: '12px',
+                                        fontFamily: 'Mulish, sans-serif'
+                                    }}
+                                />
+                            </div>
 
-                    </div>
-                    <p style={{textAlign: 'left', marginLeft: 15, marginRight: 15, fontFamily: 'Mulish, sans-serif'}}>Explore the iconic Gates-Dell Complex (GDC), home to UT Austin's Computer Science department. This modern architectural marvel houses cutting-edge research labs, collaborative spaces, and the technical heart of campus. Complete this quest by visiting the building and discovering its innovative learning environments.</p>
-                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
-                        <Button
-                            variant='contained'
-                            style={{ margin: 0, color: 'green' }}
+                        </div>
+                        <p style={{textAlign: 'left', marginLeft: 15, marginRight: 15, fontFamily: 'Mulish, sans-serif'}}>Explore the iconic Gates-Dell Complex (GDC), home to UT Austin's Computer Science department. This modern architectural marvel houses cutting-edge research labs, collaborative spaces, and the technical heart of campus. Complete this quest by visiting the building and discovering its innovative learning environments.</p>
+                        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '20px' }}>
+                            <Button
+                                variant='contained'
+                            >
+                                <b
+                                    style={{
+                                        color: 'white',
+                                        fontFamily: 'Mulish, sans-serif'
+                                    }}
+                                >
+                                    Start
+                                </b>
+                            </Button>
+                        </div>
+                        <hr style={{marginTop: 10}}>
+                        </hr>
+                        <div style={{textAlign: 'left', marginLeft: 20, fontFamily: 'Mulish, sans-serif'}}>
+                            <b>3.1k</b> likes <b>1.1k</b> Recruits <b>11.4k</b> Completions
+                        </div>
+                        <hr style={{ marginBottom: 0 }} />
+                        <Box display="flex" justifyContent="space-evenly"
+                            style={{
+                                marginLeft: 20, marginRight: 20, marginTop: 0
+                            }}
                         >
-                            <b
-                                style={{
-                                    color: 'white',
-                                    fontFamily: 'Mulish, sans-serif'
-                                }}
-                            >
-                                Start
-                            </b>
-                        </Button>
+                            <div>
+                                <Button 
+                                    variant="text" 
+                                    color="primary" 
+                                    style={{width: '100px'}}
+                                >
+                                    <img
+                                        src={heartIcon}
+                                        style = {{
+                                            width: '40px'
+                                        }}
+                                    />
+                                </Button>
+                            </div>
+                            <div>
+                                <Button 
+                                    variant="text" 
+                                    color="secondary"
+                                    style={{width: '100px'}}
+                                >
+                                    <img
+                                        src={shareIcon}
+                                        style = {{
+                                            width: '40px'
+                                        }}
+                                    />
+                                </Button>
+                            </div>
+                        </Box>
                     </div>
-                    <hr style={{marginTop: 10}}>
-                    </hr>
-                    <div style={{textAlign: 'left', marginLeft: 20, fontFamily: 'Mulish, sans-serif'}}>
-                        <b>3.1k</b> likes <b>1.1k</b> Recruits <b>11.4k</b> Completions
-                    </div>
-                    <hr style={{ marginBottom: 0 }} />
-                    <Box display="flex" justifyContent="space-evenly"
-                        style={{
-                            marginLeft: 20, marginRight: 20, marginTop: 0
-                        }}
-                    >
-                        <div>
-                            <Button 
-                                variant="text" 
-                                color="primary" 
-                                style={{width: '100px'}}
-                            >
-                                <img
-                                    src={heartIcon}
-                                    style = {{
-                                        width: '40px'
-                                    }}
-                                />
-                            </Button>
-                        </div>
-                        <div>
-                            <Button 
-                                variant="text" 
-                                color="secondary"
-                                style={{width: '100px'}}
-                            >
-                                <img
-                                    src={shareIcon}
-                                    style = {{
-                                        width: '40px'
-                                    }}
-                                />
-                            </Button>
-                        </div>
-                    </Box>
                 </div>
             </div>
         </div>
