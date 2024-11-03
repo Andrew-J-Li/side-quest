@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.css": "/side-quest/static/css/main.07f79754.css",
-    "main.js": "/side-quest/static/js/main.e45658d6.js",
+    "main.css": "/side-quest/static/css/main.33662f68.css",
+    "main.js": "/side-quest/static/js/main.4e4672ec.js",
     "static/js/453.bab25dc2.chunk.js": "/side-quest/static/js/453.bab25dc2.chunk.js",
     "static/media/ut-map.png": "/side-quest/static/media/ut-map.4033bc90cc793d938ac2.png",
+    "static/media/ut-tower.png": "/side-quest/static/media/ut-tower.28324e485adf7aa55038.png",
     "static/media/gates-dell-complex.jpg": "/side-quest/static/media/gates-dell-complex.736c3c118f910e14dcc9.jpg",
+    "static/media/share.png": "/side-quest/static/media/share.576c48925be9f2babdc6.png",
     "static/media/userPfp.jpeg": "/side-quest/static/media/userPfp.9980a5f9b285330346b6.jpeg",
     "static/media/mulish-latin-ext-400-normal.woff": "/side-quest/static/media/mulish-latin-ext-400-normal.e82160238de80c263103.woff",
     "static/media/mulish-latin-400-normal.woff": "/side-quest/static/media/mulish-latin-400-normal.bd9f266c4bb13cd9920c.woff",
+    "static/media/heart.png": "/side-quest/static/media/heart.5e48c930b2165b744938.png",
     "static/media/mulish-latin-400-normal.woff2": "/side-quest/static/media/mulish-latin-400-normal.d2ff49c90a9ec133bdc2.woff2",
     "static/media/mulish-latin-ext-400-normal.woff2": "/side-quest/static/media/mulish-latin-ext-400-normal.16bc455386d203bae26d.woff2",
     "static/media/mulish-cyrillic-ext-400-normal.woff": "/side-quest/static/media/mulish-cyrillic-ext-400-normal.30636c218aea97414e24.woff",
@@ -17,12 +20,12 @@
     "static/media/mulish-cyrillic-400-normal.woff2": "/side-quest/static/media/mulish-cyrillic-400-normal.4f530bddab30dcdb4b4e.woff2",
     "static/media/mulish-vietnamese-400-normal.woff2": "/side-quest/static/media/mulish-vietnamese-400-normal.8bd1d3d480d5d9d741ae.woff2",
     "index.html": "/side-quest/index.html",
-    "main.07f79754.css.map": "/side-quest/static/css/main.07f79754.css.map",
-    "main.e45658d6.js.map": "/side-quest/static/js/main.e45658d6.js.map",
+    "main.33662f68.css.map": "/side-quest/static/css/main.33662f68.css.map",
+    "main.4e4672ec.js.map": "/side-quest/static/js/main.4e4672ec.js.map",
     "453.bab25dc2.chunk.js.map": "/side-quest/static/js/453.bab25dc2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.07f79754.css",
-    "static/js/main.e45658d6.js"
+    "static/css/main.33662f68.css",
+    "static/js/main.4e4672ec.js"
   ]
 }
