@@ -10,9 +10,9 @@ const HomePage = () => {
 
     useEffect(() => {
         const fetchedAchievements = [
-            { title: "Reached Level 10", time: "1h ago" },
-            { title: "Completed 50 Quests", time: "1d ago" },
-            { title: "Earned 1000 XP", time: "3d ago" },
+            { title: "Fall 2024 GDC Gladiator!", time: "2d ago" },
+            { title: "Completed 50 Quests", time: "4d ago" },
+            { title: "30 Day Streak", time: "5d ago" },
         ];
 
         setRecentAchievements(fetchedAchievements);
