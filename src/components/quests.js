@@ -1,10 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Card, CardMedia, CardContent, Typography, Chip, Box, Button } from '@mui/material';
+import { Card, CardMedia, CardContent, Typography, Chip, Box, Button, Grid2} from '@mui/material';
 import '../components/quests.css';
 import gatesDellImage from '../images/gates-dell-complex.jpg';
 import utTowerImage from '../images/ut-tower.png';
-import heartIcon from '../images/heart.png';
-import shareIcon from '../images/share.png';
+import clarkFieldImage from '../images/clark.jpg';
+import jamailPoolImage from '../images/jamail.png';
+import { Heart, Share2, MessageCircle } from 'lucide-react';
 
 const Quests = () => {
     useEffect(() => {
@@ -63,7 +64,7 @@ const Quests = () => {
 
     const QuestCard = ({ image, title, rarity, likes, shares, completes, category}) => {
         return (
-            <Card className="quest-card" style={{ height: '380px' }}>
+            <Card className="quest-card" style={{ height: '380px', width: '295px' }}>
                 <CardMedia
                     component="img"
                     height="140"
@@ -75,7 +76,7 @@ const Quests = () => {
                     <div>
                         <Typography
                             fontFamily="Mulish, sans-serif"
-                            fontSize="20px"
+                            fontSize="18px"
                             fontWeight="bold"
                             style={{ margin: '0', padding: '0' }}
                         >
@@ -128,7 +129,7 @@ const Quests = () => {
                             style={{ margin: '0', padding: '0' }}
                         >
                         <b style={{ fontSize: '14px' }}>{likes}</b>&nbsp;<span style={{ fontSize: '14px' }}>likes</span>&nbsp;
-                        <b style={{ fontSize: '14px' }}>{shares}</b>&nbsp;<span style={{ fontSize: '14px' }}>shares</span>&nbsp;
+                        <b style={{ fontSize: '14px' }}>{shares}</b>&nbsp;<span style={{ fontSize: '14px' }}>recruits</span>&nbsp;
                         <b style={{ fontSize: '14px' }}>{completes}</b>&nbsp;<span style={{ fontSize: '14px' }}>completes</span>
                         </Typography>
                     </div>
@@ -136,19 +137,26 @@ const Quests = () => {
                     <hr style={{ margin: '5px 0', border: '1px solid #ccc' }} />
                 
                     <div style={{ display: 'flex', justifyContent: 'center', margin: 0, padding: 0 }}>
-                        <Button variant="text" color="primary" style={{ width: '100px' }}>
-                            <img
-                                src={heartIcon}
-                                style={{ height: '40px', width: 'auto' }}
-                                alt="Heart Icon"
-                            />
+                        <Button 
+                            variant="text" 
+                            color="primary" 
+                            style={{width: '100px'}}
+                        >
+                            <Heart style={{ width: '40px' }} />
                         </Button>
-                        <Button variant="text" color="secondary" style={{ width: '100px' }}>
-                            <img
-                                src={shareIcon}
-                                style={{ height: '40px', width: 'auto' }}
-                                alt="Share Icon"
-                            />
+                        <Button 
+                            variant="text" 
+                            color="primary" 
+                            style={{width: '100px'}}
+                        >
+                            <MessageCircle style={{ width: '40px' }} />
+                        </Button>
+                        <Button 
+                            variant="text" 
+                            color="primary" 
+                            style={{width: '100px'}}
+                        >
+                            <Share2 style={{ width: '40px' }} />
                         </Button>
                     </div>
                 </CardContent>
@@ -232,7 +240,7 @@ const Quests = () => {
                         <hr style={{marginTop: 10}}>
                         </hr>
                         <div style={{textAlign: 'left', marginLeft: 20, fontFamily: 'Mulish, sans-serif'}}>
-                            <b>3.1k</b> likes <b>1.1k</b> Recruits <b>11.4k</b> Completions
+                            <b>3.1k</b> likes <b>1.1k</b> recruits <b>11.4k</b> completions
                         </div>
                         <hr style={{ marginBottom: 0 }} />
                         <Box display="flex" justifyContent="space-evenly"
@@ -240,53 +248,40 @@ const Quests = () => {
                                 marginLeft: 20, marginRight: 20, marginTop: 0
                             }}
                         >
-                            <div>
-                                <Button 
-                                    variant="text" 
-                                    color="primary" 
-                                    style={{width: '100px'}}
-                                >
-                                    <img
-                                        src={heartIcon}
-                                        style = {{
-                                            width: '40px'
-                                        }}
-                                    />
-                                </Button>
-                            </div>
-                            <div>
-                                <Button 
-                                    variant="text" 
-                                    color="secondary"
-                                    style={{width: '100px'}}
-                                >
-                                    <img
-                                        src={shareIcon}
-                                        style = {{
-                                            width: '40px'
-                                        }}
-                                    />
-                                </Button>
-                            </div>
+                            <Button 
+                                variant="text" 
+                                color="primary" 
+                                style={{width: '100px'}}
+                            >
+                                <Heart style={{ width: '40px' }} />
+                            </Button>
+                            <Button 
+                                variant="text" 
+                                color="primary" 
+                                style={{width: '100px'}}
+                            >
+                                <MessageCircle style={{ width: '40px' }} />
+                            </Button>
+                            <Button 
+                                variant="text" 
+                                color="primary" 
+                                style={{width: '100px'}}
+                            >
+                                <Share2 style={{ width: '40px' }} />
+                            </Button>
                         </Box>
                     </div>
                 </div>
             </div>
         </div>
-        <div className="main-content">
-            <Typography variant="h4" align="center" gutterBottom>
+        <div className="main-content" style={{marginLeft: '100px', marginRight: '100px'}}>
+            <Typography variant="h4" align="left" gutterBottom>
                 <b style={{fontFamily: 'Mulish, sans-serif'}}>
                     All Quests
                 </b>
             </Typography>
-            <div 
-                className="quests-container"
-                ref={scrollContainerRef}
-                onMouseDown={handleMouseDown}
-                onMouseLeave={handleMouseLeave}
-                onMouseUp={handleMouseUp}
-                onMouseMove={handleMouseMove}
-            >
+            <Grid2 container justifyContent='center' spacing={3}>
+                <Grid2 size={3}>
                 <QuestCard 
                     image={gatesDellImage} 
                     title="Visit the Gates-Dell Complex"
@@ -296,6 +291,9 @@ const Quests = () => {
                     completes="11.4k"
                     category="Computer Science"
                 />
+                </Grid2>
+
+                <Grid2 size={3}>
                 <QuestCard
                     image={utTowerImage}
                     title="Visit the UT Tower"
@@ -305,8 +303,31 @@ const Quests = () => {
                     completes="25.2k"
                     category="General"
                 />
+                </Grid2>
+                <Grid2 size={3}>
+                <QuestCard
+                    image={clarkFieldImage}
+                    title="Run a Lap at Clark Field"
+                    rarity="Common"
+                    likes="21.3k"
+                    shares="7.1k"
+                    completes="51.2k"
+                    category="Athletics"
+                />
+                </Grid2>
+                <Grid2 size={3}>
+                <QuestCard
+                    image={jamailPoolImage}
+                    title="Swim at Jamail Pool"
+                    rarity="Rare"
+                    likes="9.8k"
+                    shares="2.2k"
+                    completes="21.3k"
+                    category="Athletics"
+                />
+                </Grid2>
                 {/* Add more quest cards as needed */}
-            </div>
+            </Grid2>
         </div>
         </>
     );
