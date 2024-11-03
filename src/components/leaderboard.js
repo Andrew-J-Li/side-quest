@@ -34,7 +34,7 @@ const Leaderboard = () => {
     return (
         <ThemeProvider theme={theme}>
         <Box sx={{ maxWidth: '50%', mx: 'auto', mt: 4, bgcolor: '#81F2FF50', height: '100px' }}>
-            <Card sx={{ display: 'flex', alignItems: 'center', padding: 2, mb: 2, bgcolor: '#d6f4f9', height: '100%' }}>
+            <Card variant="outlined" sx={{ display: 'flex', alignItems: 'center', padding: 2, mb: 2, height: '100%' }}>
                 <Avatar src={userPfp} sx={{ height: '100%', width: 'auto', aspectRatio: '1/1', mr: 2, bgcolor: 'grey.300' }}>A</Avatar>
                 <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
                     <Box sx={{ flexGrow: 1 }}>
@@ -60,7 +60,7 @@ const Leaderboard = () => {
                 </Box>
             </Card>
 
-            <Card sx={{ bgcolor: '#FFFFFF25' }}>
+            <Card variant="outlined" sx={{ }}>
                 <CardContent>
                     <Tabs font='Mulish' value={value} onChange={handleChange} indicatorColor="primary" textColor="primary" variant="fullWidth">
                         <Tab label="Friends" />
@@ -183,7 +183,7 @@ const ListItem = ({ rank, username, score, isHighlighted }) => (
             alignItems: 'center',
             p: 1,
             mb: 1,
-            bgcolor: isHighlighted ? '#a3e5ff' : '#a3e5ff25',
+            bgcolor: isHighlighted ? '#81F2FF50' : '#a3e5ff25',
             borderRadius: 1,
             fontWeight: isHighlighted ? 'bold' : 'normal',
             justifyContent: 'space-between', // Added for spacing
