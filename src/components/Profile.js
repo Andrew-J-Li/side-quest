@@ -9,6 +9,14 @@ import HeatMap from './HeatMap';
 import userPfp from '../images/user-pfp.webp';
 import { Flame, Scroll, Droplets, Ghost, Footprints } from 'lucide-react';
 
+// Define a neon color scheme inspired by Japanese retro arcade aesthetics
+const arcadeColors = {
+  card: '#FFFFFF',       // Slightly lighter dark card color
+  button: '#39ff14',     // Neon green button color
+  buttonText: '#000000', // Black text for button
+  title: '#101010',      // Neon pink title color
+  glow: 'rgba(150,250,255,0.5)', // Green glow effect
+};
 
 function Profile() {
 
@@ -36,6 +44,7 @@ function Profile() {
         <Card
           variant="outlined"
           sx={{
+            boxShadow: `0 0 20px ${arcadeColors.glow}`,
             borderRadius: "10px",
             height: "fit-content",
             flex: '1 1 0',
@@ -118,6 +127,7 @@ function Profile() {
           <Card
             variant="outlined"
             sx={{
+              boxShadow: `0 0 20px ${arcadeColors.glow}`,
               borderRadius: "10px",
               height: "fit-content",
               flex: '1 1 0%',
@@ -180,6 +190,7 @@ function Profile() {
         <Card
           variant="outlined"
           sx={{
+            boxShadow: `0 0 20px ${arcadeColors.glow}`,
             borderRadius: "10px",
             height: "fit-content",
             flex: '1 1 70%',
@@ -200,6 +211,7 @@ function Profile() {
       <Card
         variant="outlined"
         sx={{
+          boxShadow: `0 0 20px ${arcadeColors.glow}`,
           borderRadius: "10px",
           width: "100%",
           flex: '1 1 70%',

@@ -15,9 +15,18 @@ import footballImage from '../images/football.png';
 import lawnImage from '../images/lawn.png';
 import { Heart, Share2, MessageCircle } from 'lucide-react';
 
+// Define a neon color scheme inspired by Japanese retro arcade aesthetics
+const arcadeColors = {
+    card: '#FFFFFF',       // Slightly lighter dark card color
+    button: '#39ff14',     // Neon green button color
+    buttonText: '#000000', // Black text for button
+    title: '#101010',      // Neon pink title color
+    glow: 'rgba(150,250,255,0.5)', // Green glow effect
+};
+
 const QuestCard = ({ image, title, rarity, likes, shares, completes, category}) => {
     return (
-        <Card className="quest-card" style={{ height: '380px', width: '295px', transition: 'transform 0.3s ease'}}>
+        <Card className="quest-card" style={{ boxShadow: `0 0 20px ${arcadeColors.glow}`, height: '380px', width: '295px', transition: 'transform 0.3s ease'}}>
             <CardMedia
                 component="img"
                 height="140"
@@ -175,8 +184,8 @@ const Quests = () => {
 
     return (
         <>
-        <div style={{paddingLeft: '100px', paddingRight: '100px', display: 'flex', justifyContent: 'center', marginBottom: '20px'}}>
-            <div className="main-content" style={{textAlign: 'left', width: 'fit-content'}}>
+        <div style={{ paddingLeft: '100px', paddingRight: '100px', display: 'flex', justifyContent: 'center', marginBottom: '20px'}}>
+            <div className="main-content" style={{boxShadow: `0 0 20px ${arcadeColors.glow}`, textAlign: 'left', width: 'fit-content'}}>
                 <Typography variant="h4" align="left" gutterBottom>
                     <b style={{fontFamily: 'Mulish, sans-serif'}}>Daily Quest</b>
                 </Typography>

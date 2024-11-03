@@ -11,6 +11,15 @@ const theme = createTheme({
     },
 });
 
+// Define a neon color scheme inspired by Japanese retro arcade aesthetics
+const arcadeColors = {
+    card: '#FFFFFF',       // Slightly lighter dark card color
+    button: '#39ff14',     // Neon green button color
+    buttonText: '#000000', // Black text for button
+    title: '#101010',      // Neon pink title color
+    glow: 'rgba(150,250,255,0.5)', // Green glow effect
+};
+
 const userPoints = 6321;
 const userName = 'Gon';
 
@@ -120,6 +129,7 @@ const Leaderboard = () => {
             <Card
                 variant="outlined"
                 sx={{
+                    boxShadow: `0 0 20px ${arcadeColors.glow}`,
                     borderRadius: "10px",
                     width: "50%",      // Set width to balance the layout
                     padding: 2,
@@ -260,7 +270,7 @@ const Leaderboard = () => {
             </Card>
 
             {/* Profile & Leaderboard Card */}
-            <Box sx={{ width: '45%', display: 'flex', flexDirection: 'column', gap: 2 }}>
+            <Box sx={{ boxShadow: `0 0 20px ${arcadeColors.glow}`, width: '45%', display: 'flex', flexDirection: 'column', gap: 2 }}>
                 {/* Profile Card */}
                 <Card variant="outlined" sx={{ padding: 2, borderRadius: '10px', mb: 2 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -288,7 +298,7 @@ const Leaderboard = () => {
                 </Card>
 
                 {/* Leaderboard Card */}
-                <Card variant="outlined" sx={{ borderRadius: '10px' }}>
+                <Card variant="outlined" sx={{ boxShadow: `0 0 20px ${arcadeColors.glow}`, borderRadius: '10px' }}>
                     <CardContent>
                         <Tabs
                             fontFamily="Mulish"
@@ -323,7 +333,7 @@ const Leaderboard = () => {
                             ))}
                         </Box>
 
-                        <Box sx={{ mt: 2, maxHeight: '300px', overflowY: 'auto', bgcolor: '#ffffff50' }}>
+                        <Box sx={{ boxShadow: `0 0 20px ${arcadeColors.glow}`, mt: 2, maxHeight: '300px', overflowY: 'auto', bgcolor: '#ffffff50' }}>
                             {listItems.map((item, index) => (
                                 <ListItem
                                     key={index}
@@ -449,6 +459,7 @@ const ListItem = ({ rank, username, score, isHighlighted }) => (
             borderRadius: 1,
             fontWeight: isHighlighted ? 'bold' : 'normal',
             justifyContent: 'space-between', // Added for spacing
+            boxShadow: `0 0 5px ${arcadeColors.glow}`,
         }}
     >
         <Typography variant="body2" sx={{ fontWeight: 'bold', mr: 2 }}>

@@ -7,9 +7,18 @@ import { Heart, MessageCircle, Share2 } from 'lucide-react';
 import DailyPollCard from './DailyPollCard';
 import utTowerImage from '../images/ut-tower.png';
 
+// Define a neon color scheme inspired by Japanese retro arcade aesthetics
+const arcadeColors = {
+    card: '#FFFFFF',       // Slightly lighter dark card color
+    button: '#39ff14',     // Neon green button color
+    buttonText: '#000000', // Black text for button
+    title: '#101010',      // Neon pink title color
+    glow: 'rgba(150,250,255,0.5)', // Green glow effect
+};
+
 const QuestCard = ({ image, title, rarity, likes, shares, completes, category}) => {
     return (
-        <Card variant="outlined" className="quest-card" style={{ height: '380px', width: 'auto', transition: 'transform 0.3s ease'}}>
+        <Card variant="outlined" className="quest-card" style={{ boxShadow: `0 0 20px ${arcadeColors.glow}`,height: '380px', width: 'auto', transition: 'transform 0.3s ease'}}>
             <CardMedia
                 component="img"
                 height="140"
@@ -183,6 +192,7 @@ const HomePage = () => {
                     bgcolor: '#ff8214',
                     textAlign: 'center',
                     borderRadius: 2,
+                    boxShadow: `0 0 20px ${'#ff8214'}`
                 }}
             >
                 <Typography fontFamily='mulish' variant="h5" sx={{ fontWeight: 'bold', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -203,7 +213,7 @@ const HomePage = () => {
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                         {/* Sample social media posts from friends */}
                         {friendPosts.map((post) => (
-                        <Card key={post.id} variant="outlined" sx={{ borderRadius: '10px', paddingTop: 2, paddingRight: 2, paddingLeft: 2 }}>
+                        <Card key={post.id} variant="outlined" sx={{ boxShadow: `0 0 20px ${arcadeColors.glow}`, borderRadius: '10px', paddingTop: 2, paddingRight: 2, paddingLeft: 2 }}>
                             <CardContent>
                             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                                 <Avatar alt={post.friendName} src={post.profilePicture} sx={{ mr: 2 }} />
@@ -274,7 +284,7 @@ const HomePage = () => {
                     <DailyPollCard />
 
                     {/* Recent Achievements Section */}
-                    <Card variant="outlined" sx={{ borderRadius: '10px', display: 'flex', flexDirection: 'column', mb: 3 }}>
+                    <Card variant="outlined" sx={{boxShadow: `0 0 20px ${arcadeColors.glow}`, borderRadius: '10px', display: 'flex', flexDirection: 'column', mb: 3 }}>
                     <CardContent>
                         <Typography fontFamily='mulish' variant="h6" gutterBottom>Recent Achievements</Typography>
                         <List>
@@ -295,7 +305,7 @@ const HomePage = () => {
                         View All Achievements
                     </Button>
                     </Card>
-                    <Typography fontFamily='mulish' variant="h5" sx={{mb: 2}}>Recommended Quest</Typography>
+                    <Typography fontFamily='mulish' variant="h5" sx={{textShadow: `0 0 5px ${arcadeColors.glow}`,mb: 2}}>Recommended Quest</Typography>
                     <QuestCard
                     image={utTowerImage}
                     title="Visit the UT Tower"
@@ -305,7 +315,7 @@ const HomePage = () => {
                     completes="25.2k"
                     category="General"
                     />
-                    <Paper variant="outlined" sx={{ mt: 3, p: 4, borderRadius: '8px', textAlign: 'center' }}>
+                    <Paper variant="outlined" sx={{ boxShadow: `0 0 20px ${arcadeColors.glow}`,mt: 3, p: 4, borderRadius: '8px', textAlign: 'center' }}>
                         <Typography variant="h5" component="h2" sx={{ mb: 2, fontFamily: "Mulish"}}>
                             Submit a Quest
                         </Typography>

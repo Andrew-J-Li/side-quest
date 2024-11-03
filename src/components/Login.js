@@ -11,12 +11,16 @@ function LoginPage() {
           flexDirection: 'column',
           alignItems: 'center',
           mt: 5,
+          backgroundColor: '#0d0d0d', // Dark background for arcade feel
+          borderRadius: '8px',
+          padding: '20px', // Extra padding for arcade touch
+          boxShadow: '0px 0px 20px rgba(255, 255, 255, 0.5)', // Glowing effect
         }}
       >
 
         {/* Login Form */}
-        <Paper variant="outlined" sx={{ mt: 10, p: 4, borderRadius: '8px', width: '60%', textAlign: 'center' }}>
-          <Typography variant="h5" component="h2" sx={{ mb: 2, fontFamily: "Mulish"}}>
+        <Paper variant="outlined" sx={{ mt: 10, p: 4, borderRadius: '12px', width: '100%', textAlign: 'center', backgroundColor: '#1c1c1c', borderColor: '#81F2FF' }}>
+          <Typography variant="h5" component="h2" sx={{ mb: 2, fontFamily: "Press Start 2P, cursive", color: '#81F2FF' }}>
             Sign in
           </Typography>
           <Box component="form" noValidate autoComplete="off">
@@ -25,6 +29,26 @@ function LoginPage() {
               label="Username"
               variant="outlined"
               margin="normal"
+              sx={{
+                input: {
+                  backgroundColor: '#3c3c3c',
+                  color: '#FFFFFF',
+                },
+                '& label': {
+                  color: '#81F2FF',
+                },
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: '#81F2FF',
+                  },
+                  '&:hover fieldset': {
+                    borderColor: '#89cfee',
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: '#89cfee',
+                  },
+                },
+              }}
             />
             <TextField
               fullWidth
@@ -32,7 +56,27 @@ function LoginPage() {
               type="password"
               variant="outlined"
               margin="normal"
-              sx = {{mb: 2}}
+              sx={{
+                mb: 2,
+                input: {
+                  backgroundColor: '#3c3c3c',
+                  color: '#FFFFFF',
+                },
+                '& label': {
+                  color: '#81F2FF',
+                },
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': {
+                    borderColor: '#81F2FF',
+                  },
+                  '&:hover fieldset': {
+                    borderColor: '#89cfee',
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: '#89cfee',
+                  },
+                },
+              }}
             />
             <CardActionArea component={Link} to="/home">
               <Button
@@ -41,7 +85,7 @@ function LoginPage() {
                 sx={{
                   backgroundColor: '#81F2FF',
                   color: 'black',
-                  fontFamily: "Mulish",
+                  fontFamily: "Press Start 2P, cursive",
                   fontWeight: 'bold',
                   '&:hover': { backgroundColor: '#89cfee' }
                 }}
