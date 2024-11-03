@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Card, CardContent, Typography, Avatar, Tabs, Tab } from '@mui/material';
-import userPfp from './images/userPfp.jpeg';
+import userPfp from '../images/userPfp.jpeg';
 
 const Leaderboard = () => {
     const [value, setValue] = useState(0); // State to manage the selected tab

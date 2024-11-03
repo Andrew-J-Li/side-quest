@@ -30,6 +30,7 @@ function ResponsiveAppBar() {
   };
 
   return (
+    <>
     <AppBar position="sticky" sx={{ bgcolor: "#81F2FF", boxShadow: '0 0 5px #81F2FF, 0 0 70px #81F2FF, 0 0 75px #81F2FF', border: 'solid 1px black',}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -77,7 +78,7 @@ function ResponsiveAppBar() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu} to="quests">
+                <MenuItem key={page} onClick={handleCloseNavMenu}> 
                     <Typography sx={{ color: 'black', textAlign: 'center', fontFamily: 'Mulish'}}>{page}</Typography>
                 </MenuItem>
               ))}
@@ -85,7 +86,7 @@ function ResponsiveAppBar() {
           </Box>
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-                <CardActionArea component={Link} to='quests'>
+                <CardActionArea component={Link} to={`${page.toLowerCase()}`}>
                   <Button
                     key={page}
                     onClick={handleCloseNavMenu}
@@ -106,6 +107,8 @@ function ResponsiveAppBar() {
         </Toolbar>
       </Container>
     </AppBar>
+    <Box sx={{margin: 9}}/>
+    </>
   );
 }
 export default ResponsiveAppBar;
