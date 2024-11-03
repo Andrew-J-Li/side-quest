@@ -5,14 +5,14 @@ import Quests from './components/quests.js';
 import Leaderboard from './components/leaderboard.js';
 import Profile from './components/Profile.js';
 import ResponsiveAppBar from './components/ResponsiveAppBar.js';
-import Preview from './components/Preview.js';
+import Home from './components/Home.js';
 
 function App() {
   return (
     <div>
       <ResponsiveAppBar />
       <Routes basename='.'>
-        <Route path='/' element={<Preview />} />
+        <Route path='/' element={<Home />} />
         <Route path='/quests' element={<Quests />} />
         <Route path='/leaderboard' element={<Leaderboard />} />
         <Route path='/login' element={<Login />} />
