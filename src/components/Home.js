@@ -1,10 +1,114 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Typography, Card, CardContent, Avatar, List, ListItem, ListItemAvatar, ListItemText, Button, Grid2, Paper } from '@mui/material';
+import { Box, Typography, Card, CardContent, Avatar, List, ListItem, ListItemAvatar, ListItemText, Button, Grid2, Paper, TextField, CardActionArea   } from '@mui/material';
+import { CardMedia, Chip} from '@mui/material';
 import { Star as StarIcon } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
+import { Heart, MessageCircle, Share2 } from 'lucide-react';
 import DailyPollCard from './DailyPollCard';
-import { Heart, MessageCircle } from 'lucide-react';
+import utTowerImage from '../images/ut-tower.png';
 
+const QuestCard = ({ image, title, rarity, likes, shares, completes, category}) => {
+    return (
+        <Card className="quest-card" style={{ height: '380px', width: 'auto', transition: 'transform 0.3s ease'}}>
+            <CardMedia
+                component="img"
+                height="140"
+                image={image}
+                alt={title}
+                style={{ objectFit: 'cover', height: '150px', margin: 0, padding: 0 }}
+            />
+            <CardContent style={{marginLeft: 5, padding: 5 }}>
+                <div>
+                    <Typography
+                        fontFamily="Mulish, sans-serif"
+                        fontSize="18px"
+                        fontWeight="bold"
+                        style={{ margin: '0', padding: '0' }}
+                    >
+                        {title}
+                    </Typography>
+                    <div>
+                    <Chip 
+                        label={rarity}
+                        color={rarity === "Rare" ? "warning" : "primary"}
+                        style={{
+                            marginLeft: 0,
+                            marginRight: 2,
+                            height: '25px',
+                            fontSize: '12px',
+                            fontFamily: 'Mulish, sans-serif'
+                        }}
+                    />
+                    <Chip 
+                        label={category}
+                        style={{
+                            backgroundColor: 'lightblue',
+                            margin: 5,
+                            height: '25px',
+                            fontSize: '12px',
+                            fontFamily: 'Mulish, sans-serif'
+                        }}
+                    />
+                    </div>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '10px'}}>
+                    <Button
+                        variant='contained'
+                    >
+                        <b
+                            style={{
+                                color: 'white',
+                                fontFamily: 'Mulish, sans-serif'
+                            }}
+                        >
+                            Start
+                        </b>
+                    </Button>
+                </div>
+
+                <hr style={{ margin: '5px 0', border: '1px solid #ccc' }} />
+
+                <div>
+                    <Typography
+                        fontFamily="Mulish, sans-serif"
+                        fontSize="20px"
+                        style={{ margin: '0', padding: '0' }}
+                    >
+                    <b style={{ fontSize: '12.8px' }}>{likes}</b>&nbsp;<span style={{ fontSize: '12.8px' }}>likes</span>&nbsp;
+                    <b style={{ fontSize: '12.8px' }}>{shares}</b>&nbsp;<span style={{ fontSize: '12.8px' }}>recruits</span>&nbsp;
+                    <b style={{ fontSize: '12.8px' }}>{completes}</b>&nbsp;<span style={{ fontSize: '12.8px' }}>completes</span>
+                    </Typography>
+                </div>
+
+                <hr style={{ margin: '5px 0', border: '1px solid #ccc' }} />
+            
+                <div style={{ display: 'flex', justifyContent: 'center', margin: 0, paddingTop: 5 }}>
+                    <Button 
+                        variant="text" 
+                        color="primary" 
+                        style={{width: '100px'}}
+                    >
+                        <Heart style={{ width: '40px' }} />
+                    </Button>
+                    <Button 
+                        variant="text" 
+                        color="primary" 
+                        style={{width: '100px'}}
+                    >
+                        <MessageCircle style={{ width: '40px' }} />
+                    </Button>
+                    <Button 
+                        variant="text" 
+                        color="primary" 
+                        style={{width: '100px'}}
+                    >
+                        <Share2 style={{ width: '40px' }} />
+                    </Button>
+                </div>
+            </CardContent>
+        </Card>
+    );
+};
 
 const HomePage = () => {
     const [fetchedAchievements, setRecentAchievements] = useState([]);
@@ -24,6 +128,8 @@ const HomePage = () => {
           id: 1,
           friendName: "Guts",
           profilePicture: "https://i.pinimg.com/736x/d6/0b/60/d60b60df9147a88c660bc1452385c3a7.jpg",
+          level: 5,
+          rank: "Beginner",
           postImage: require("../images/swim-meet.JPG"),
           title: "Watching some people swim",
           description: "Didn't realize watching people swim fast could be so entertaining. 10/10 swim meet.",
@@ -31,7 +137,9 @@ const HomePage = () => {
         {
           id: 2,
           friendName: "Hu Tao",
-          profilePicture: "https://wallpapers.com/images/hd/cool-anime-girl-pfp-hu-tao-6cjtrrhyvr2g24ik.jpg", // Replace with actual image URL
+          profilePicture: "https://wallpapers.com/images/hd/cool-anime-girl-pfp-hu-tao-6cjtrrhyvr2g24ik.jpg",
+          level: 16,
+          rank: "Intermediate",
           postImage: require("../images/pma-top.JPG"),
           title: "Visited the top of the PMA!",
           description: "The view of the campus was beautiful!",
@@ -39,7 +147,9 @@ const HomePage = () => {
         {
         id: 2,
         friendName: "HuangJ",
-        profilePicture: "https://th.bing.com/th/id/OIP.91GgEkbkpDaQ-Vv-7JeXGAHaE6?rs=1&pid=ImgDetMain", // Replace with actual image URL
+        profilePicture: "https://th.bing.com/th/id/OIP.91GgEkbkpDaQ-Vv-7JeXGAHaE6?rs=1&pid=ImgDetMain",
+        level: 42,
+        rank: "Advanced",
         postImage: "https://th.bing.com/th/id/OIP.9f16tR6bmO7vCUfw9UCrJwHaFs?w=278&h=204&c=7&r=0&o=5&dpr=2&pid=1.7",
         title: "On the real engineering major",
         description: "I've concluded that computer science is superior to any engineering major",
@@ -71,7 +181,10 @@ const HomePage = () => {
 
             <Grid2 container spacing={3} justifyContent="center">
                 {/* Right Side - Social Media Feed */}
-                <Grid2 item size={8}>
+                <Grid2 item size={8}>        
+                    <Typography variant="h4" align="left" gutterBottom>
+                        <b style={{fontFamily: 'Mulish, sans-serif'}}>Quest Feed</b>
+                    </Typography>
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                         {/* Sample social media posts from friends */}
                         {friendPosts.map((post) => (
@@ -79,8 +192,11 @@ const HomePage = () => {
                             <CardContent>
                             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                                 <Avatar alt={post.friendName} src={post.profilePicture} sx={{ mr: 2 }} />
-                                <Typography variant="h6" component="div" sx={{fontFamily: "mulish"}}>
-                                {post.friendName}
+                                <Typography variant="h6" component="div" sx={{fontFamily: "mulish", mr: 2}}>
+                                    {post.friendName}
+                                </Typography>
+                                <Typography component="div" sx={{color: "gray", fontFamily: "mulish"}}>
+                                    {"Level " + post.level + " | " + post.rank}
                                 </Typography>
                             </Box>
                             <Typography variant="h6" component="div" sx={{ mb: 1, fontFamily: "mulish" }}>
@@ -136,11 +252,14 @@ const HomePage = () => {
 
                 {/* Left Side - Limited quests and Recent Achievements */}
                 <Grid2 item size={4}>
+                    <Typography variant="h4" align="left" gutterBottom>
+                        <b style={{fontFamily: 'Mulish, sans-serif'}}>Daily Poll</b>
+                    </Typography>
                     {/* Limited quests Section */}
                     <DailyPollCard />
 
                     {/* Recent Achievements Section */}
-                    <Card variant="outlined" sx={{ borderRadius: '10px', display: 'flex', flexDirection: 'column' }}>
+                    <Card variant="outlined" sx={{ borderRadius: '10px', display: 'flex', flexDirection: 'column', mb: 3 }}>
                     <CardContent>
                         <Typography fontFamily='mulish' variant="h6" gutterBottom>Recent Achievements</Typography>
                         <List>
@@ -161,6 +280,53 @@ const HomePage = () => {
                         View All Achievements
                     </Button>
                     </Card>
+                    <Typography fontFamily='mulish' variant="h5" sx={{mb: 2}}>Recommended Quest</Typography>
+                    <QuestCard
+                    image={utTowerImage}
+                    title="Visit the UT Tower"
+                    rarity="Common"
+                    likes="14.7k"
+                    shares="5.5k"
+                    completes="25.2k"
+                    category="General"
+                    />
+                    <Paper variant="outlined" sx={{ mt: 3, p: 4, borderRadius: '8px', textAlign: 'center' }}>
+                        <Typography variant="h5" component="h2" sx={{ mb: 2, fontFamily: "Mulish"}}>
+                            Submit a Quest
+                        </Typography>
+                        <Box component="form" noValidate autoComplete="off">
+                            <TextField
+                            fullWidth
+                            label="Quest Name"
+                            variant="outlined"
+                            margin="normal"
+                            />
+                            <TextField
+                            multiline
+                            fullWidth
+                            label="Description"
+                            rows={4}
+                            variant="outlined"
+                            margin="normal"
+                            />
+                            <CardActionArea component={Link} to="/home">
+                            <Button
+                                fullWidth
+                                variant="contained"
+                                sx={{
+                                mt: 2,
+                                backgroundColor: '#81F2FF',
+                                color: 'black',
+                                fontFamily: "Mulish",
+                                fontWeight: 'bold',
+                                '&:hover': { backgroundColor: '#89cfee' }
+                                }}
+                            >
+                                Submit
+                            </Button>
+                            </CardActionArea>
+                        </Box>
+                    </Paper>
                 </Grid2>
             </Grid2>
         </Box>
