@@ -15,6 +15,7 @@ const MongoTest = () => {
 			
 			const users = await response.json()
 			setUsers(users)
+			console.log(users)
 		}
 
 		getUsers()
