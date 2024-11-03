@@ -16,7 +16,7 @@ import "@fontsource/mulish";
 import { Link } from 'react-router-dom';
 import { CardActionArea } from "@mui/material";
 
-const pages = ['Quests', 'Leaderboard', 'Login'];
+const pages = ['Quests', 'Leaderboard'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -34,7 +34,7 @@ function ResponsiveAppBar() {
       <AppBar position="sticky" sx={{ bgcolor: "#81F2FF", boxShadow: '0 0 5px #81F2FF, 0 0 70px #81F2FF, 0 0 75px #81F2FF', border: 'solid 1px black',}}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+            <Link to="home" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
               <PlaceIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: 'black' }} />
               <Typography
                   variant="h6"

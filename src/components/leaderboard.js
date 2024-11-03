@@ -33,34 +33,34 @@ const Leaderboard = () => {
 
     return (
         <ThemeProvider theme={theme}>
-        <Box sx={{ maxWidth: '50%', mx: 'auto', mt: 4, bgcolor: '#81F2FF50', height: '100px' }}>
-            <Card variant="outlined" sx={{ display: 'flex', alignItems: 'center', padding: 2, mb: 2, height: '100%' }}>
-                <Avatar src={userPfp} sx={{ height: '100%', width: 'auto', aspectRatio: '1/1', mr: 2, bgcolor: 'grey.300' }}>A</Avatar>
+        <Box sx={{ maxWidth: '50%', mx: 'auto', mt: 4, height: '100px' }}>
+            <Card variant="outlined" sx={{ display: 'flex', alignItems: 'center', padding: 2, mb: 2, height: '100%', borderRadius: 3 }}>
+                <Avatar src={userPfp} sx={{ height: '100%', width: 'auto', aspectRatio: '1/1', ml: 1, mr: 2, bgcolor: 'grey.300' }}>A</Avatar>
                 <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
                     <Box sx={{ flexGrow: 1 }}>
                         <Typography sx={{fontSize:"1.5rem"}} variant="h6">Long4Head</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                             <Typography style={{ fontFamily: "Mulish" }} variant="body2">
-                                <strong style={{ fontSize: '1.2rem' }}>#</strong>
-                                <strong style={{ fontSize: '1.2rem' }}>4</strong> Friends
+                                <strong style={{ fontSize: '0.9rem' }}>#</strong>
+                                <strong style={{ fontSize: '0.9rem' }}>4</strong> Friends
                             </Typography>
                             <Typography style={{ fontFamily: "Mulish" }} variant="body2">
-                                <strong style={{ fontSize: '1.2rem' }}>#</strong>
-                                <strong style={{ fontSize: '1.2rem' }}>1</strong> Nearby
+                                <strong style={{ fontSize: '0.9rem' }}>#</strong>
+                                <strong style={{ fontSize: '0.9rem' }}>1</strong> Nearby
                             </Typography>
                             <Typography style={{ fontFamily: "Mulish" }} variant="body2">
-                                <strong style={{ fontSize: '1.2rem' }}>#</strong>
-                                <strong style={{ fontSize: '1.2rem' }}>1069</strong> Global
+                                <strong style={{ fontSize: '0.9rem' }}>#</strong>
+                                <strong style={{ fontSize: '0.9rem' }}>1069</strong> Global
                             </Typography>
                         </Box>
                     </Box>
                     <Box sx={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
-                        <Typography style = {{fontFamily: "Mulish"}} sx={{fontSize:'4rem'}}> {userPoints} </Typography>
+                        <Typography style = {{fontFamily: "Mulish"}} sx={{fontSize:'4rem', marginRight: 2}}> {userPoints} </Typography>
                     </Box>
                 </Box>
             </Card>
 
-            <Card variant="outlined" sx={{ }}>
+            <Card variant="outlined" sx={{ borderRadius: 3}}>
                 <CardContent>
                     <Tabs font='Mulish' value={value} onChange={handleChange} indicatorColor="primary" textColor="primary" variant="fullWidth">
                         <Tab label="Friends" />
@@ -94,9 +94,9 @@ const Leaderboard = () => {
                         {listItems.map((item, index) => (
                             <ListItem
                                 key={index}
-                                rank={item.username == userName && value === 2 ? 1069 : index + 4} // Adding rank as a prop
+                                rank={item.username === userName && value === 2 ? 1069 : index + 4} // Adding rank as a prop
                                 username={item.username}
-                                isHighlighted={item.username == userName} // Highlight if the item is {userName}
+                                isHighlighted={item.username === userName} // Highlight if the item is {userName}
                                 score={item.score}
                             />
                         ))}
@@ -104,6 +104,7 @@ const Leaderboard = () => {
 
                 </CardContent>
             </Card>
+            <Box height="30px"/>
         </Box>
         </ThemeProvider>
     );
@@ -132,13 +133,10 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
                 position: 'absolute',
                 bottom: 0,
                 width: '100%',
-                boxShadow: username === '1st Place User' || username == userName || username === 'HuangJ' ? `-2px -2px 4px ${'gold'}, 2px -2px 4px ${'gold'}, -2px -2px 4px ${'gold'}` :
-                        username === '2nd Place User' || username === 'Hu Tao' ? `-2px -2px 4px ${'silver'}, 2px -2px 4px ${'silver'}, -2px -2px 4px ${'silver'}` :
-                        username === '3rd Place User' || username === 'Guts' ? `-2px -2px 4px ${'#cd7f32'}, 2px -2px 4px ${'#cd7f32'}, -2px -2px 4px ${'#cd7f32'}` : undefined,
-                height: username === '1st Place User' || username == userName || username === 'HuangJ' ? '110px' :
+                height: username === '1st Place User' || username === userName || username === 'HuangJ' ? '110px' :
                         username === '2nd Place User' || username === 'Hu Tao' ? '90px' :
                         username === '3rd Place User' || username === 'Guts' ? '70px' : '0px',
-                bgcolor: username === '1st Place User' || username == userName || username === 'HuangJ' ? 'gold' :
+                bgcolor: username === '1st Place User' || username === userName || username === 'HuangJ' ? 'gold' :
                         username === '2nd Place User' || username === 'Hu Tao' ? 'silver' :
                         username === '3rd Place User' || username === 'Guts' ? '#cd7f32' : 'transparent',
                 zIndex: 0,
@@ -152,7 +150,7 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
             src={imgSrc}
             sx={{
                 position: 'absolute', // Position the avatar absolutely
-                top: username === '1st Place User' || username == userName || username === 'HuangJ' ? '-65px' :
+                top: username === '1st Place User' || username === userName || username === 'HuangJ' ? '-65px' :
                     username === '2nd Place User' || username === 'Hu Tao' ? '-45px' :
                     username === '3rd Place User' || username === 'Guts' ? '-25px' : '0px',
                 width: 80,
@@ -163,7 +161,7 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
 
         {/* New Box for spacing the text */}
         <Box sx={{
-            mb: username === '1st Place User' || username == userName || username === 'HuangJ' ? '45px' :
+            mb: username === '1st Place User' || username === userName || username === 'HuangJ' ? '45px' :
                 username === '2nd Place User' || username === 'Hu Tao' ? '25px' :
                 username === '3rd Place User' || username === 'Guts' ? '5px' : '0px', zIndex: 1
         }}> {/* Padding Top set to 1 (you can adjust this value) */}
@@ -192,7 +190,7 @@ const ListItem = ({ rank, username, score, isHighlighted }) => (
         <Typography variant="body2" sx={{ fontWeight: 'bold', mr: 2 }}>
             {rank}
         </Typography>
-        <Avatar src={username == userName ? userPfp : undefined} sx={{ bgcolor: 'grey.300', mr: 1 }}>A</Avatar>
+        <Avatar src={username === userName ? userPfp : undefined} sx={{ bgcolor: 'grey.300', mr: 1 }}>A</Avatar>
         <Typography style={{ fontFamily: "Mulish" }} variant="body2">{username}</Typography>
         <Typography style={{ fontFamily: "Mulish" }} variant="body2" sx={{ marginLeft: 'auto', mr: 2 }}>{score}</Typography> {/* Added to show score */}
     </Box>
