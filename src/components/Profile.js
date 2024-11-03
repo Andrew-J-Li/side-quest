@@ -119,51 +119,47 @@ function Profile() {
             <b>Recent Activity:</b>
             <hr style={{ border: 'none', borderTop: '1px solid black', marginLeft: "5%", margin: '10px 10px', width: "90%"}} />
   
-            <Card variant="outlined" sx={{ width: '100%', marginBottom: 1}}>
-              <CardContent style={{padding: 5}}>
-                <div style={{display: 'flex'}}>
-                  <GDCGladiatorIcon tooltipText="Fall 2024 GDC Gladiator" sx={{ fontSize: '3rem'}} />
-                  <Typography fontFamily="mulish" variant="body1" sx={{fontSize: '14px', marginTop: 1, marginLeft: 1}}>
+            <Card variant="outlined" sx={{ width: '100%', marginBottom: 1 }}>
+              <CardContent style={{ padding: 5 }}>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <GDCGladiatorIcon tooltipText="" sx={{ fontSize: '2rem' }} /> {/* Adjusted size for consistency */}
+                  <Typography fontFamily="mulish" variant="body1" sx={{ fontSize: '14px', marginTop: 1, marginLeft: 1 }}>
                     Achieved Fall 2024 GDC Gladiator!
                   </Typography>
                 </div>
-
               </CardContent>
             </Card>
 
-            <Card variant="outlined" sx={{ width: '100%', marginBottom: 1}}>
-              <CardContent style={{padding: 5}}>
-                <div style={{display: 'flex'}}>
-              <Droplets color="blue" size={30} style={{marginLeft: '5px', marginRight: '5px', marginTop: '5px' }} />
-                  <Typography fontFamily="mulish" variant="body1" sx={{fontSize: '14px', marginTop: 1, marginLeft: 1}}>
+            <Card variant="outlined" sx={{ width: '100%', marginBottom: 1 }}>
+              <CardContent style={{ padding: 5 }}>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Droplets color="blue" size={30} style={{ marginLeft: '5px', marginRight: '5px', marginTop: '5px', width: '30px', height: '30px' }} /> {/* Ensure size is consistent */}
+                  <Typography fontFamily="mulish" variant="body1" sx={{ fontSize: '14px', marginTop: 1, marginLeft: 1 }}>
                     Completed Swim at Jamail Pool!
                   </Typography>
                 </div>
-
               </CardContent>
             </Card>
 
-            <Card variant="outlined" sx={{ width: '100%', marginBottom: 1}}>
-              <CardContent style={{padding: 5}}>
-                <div style={{display: 'flex'}}>
-              <Ghost color="black" size={30} style={{marginLeft: '5px', marginRight: '5px', marginTop: '5px' }} />
-                  <Typography fontFamily="mulish" variant="body1" sx={{fontSize: '14px', marginTop: 1, marginLeft: 1}}>
+            <Card variant="outlined" sx={{ width: '100%', marginBottom: 1 }}>
+              <CardContent style={{ padding: 5 }}>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Ghost color="black" size={30} style={{ width: '30px', height: '30px', marginLeft: '5px', marginRight: '5px', marginTop: '5px' }} /> {/* Ensure size is consistent */}
+                  <Typography fontFamily="mulish" variant="body1" sx={{ fontSize: '14px', marginTop: 1, marginLeft: 1 }}>
                     Completed Trick or Treat at Longhorn Halloween!
                   </Typography>
                 </div>
-
               </CardContent>
             </Card>
 
-            <Card variant="outlined" sx={{ width: '100%', marginBottom: 1}}>
-              <CardContent style={{padding: 5}}>
-                <div style={{display: 'flex'}}>
-              <Footprints color="red" size={30} style={{marginLeft: '5px', marginRight: '5px', marginTop: '5px' }} />
-                  <Typography fontFamily="mulish" variant="body1" sx={{fontSize: '14px', marginTop: 1, marginLeft: 1}}>
+            <Card variant="outlined" sx={{ width: '100%', marginBottom: 1 }}>
+              <CardContent style={{ padding: 5 }}>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Footprints color="purple" size={30} style={{ marginLeft: '5px', marginRight: '5px', marginTop: '5px', width: '30px', height: '30px' }} /> {/* Ensure size is consistent */}
+                  <Typography fontFamily="mulish" variant="body1" sx={{ fontSize: '14px', marginTop: 1, marginLeft: 1 }}>
                     Complete Run Laps at Caven Clark Field!
                   </Typography>
                 </div>
-
               </CardContent>
             </Card>
 

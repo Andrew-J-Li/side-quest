@@ -14,7 +14,23 @@ function GDCGladiatorIcon({ fontSize = 'inherit', color = 'inherit', sx = {}, to
   const iconSize = sizeMap[fontSize] || fontSize;
 
   return (
-    <Tooltip title={<span style={{ fontSize: '1.2rem' }}>{tooltipText}</span>} placement="right" arrow>
+    tooltipText ? (
+      <Tooltip title={<span style={{ fontSize: '1.2rem' }}>{tooltipText}</span>} placement="right" arrow>
+        <Box
+          component="img"
+          src={gdcGladiatorIcon}
+          alt="GDC Gladiator"
+          sx={{
+            width: iconSize,
+            height: iconSize,
+            color,
+            display: 'inline-block',
+            cursor: 'pointer', // Changes cursor to pointer on hover
+            ...sx
+          }}
+        />
+      </Tooltip>
+    ) : (
       <Box
         component="img"
         src={gdcGladiatorIcon}
@@ -24,11 +40,10 @@ function GDCGladiatorIcon({ fontSize = 'inherit', color = 'inherit', sx = {}, to
           height: iconSize,
           color,
           display: 'inline-block',
-          cursor: 'pointer', // Changes cursor to pointer on hover
           ...sx
         }}
       />
-    </Tooltip>
+    )
   );
 }
 
