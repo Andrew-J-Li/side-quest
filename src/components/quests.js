@@ -9,6 +9,10 @@ import turtlePondImage from '../images/turtle.png';
 import bartonImage from '../images/barton.jpg';
 import bassHallImage from '../images/bass.jpg';
 import historyMuseumImage from '../images/historyMuseum.jpg';
+import halloweenImage from '../images/halloween.png';
+import filmFestivalImage from '../images/filmFestival.png';
+import footballImage from '../images/football.png';
+import lawnImage from '../images/lawn.png';
 import { Heart, Share2, MessageCircle } from 'lucide-react';
 
 const Quests = () => {
@@ -284,6 +288,52 @@ const Quests = () => {
                     Limited Time Quests
                 </b>
             </Typography>
+            <Grid2 container justifyContent="left">
+                <Grid2 size={3}>
+                <QuestCard
+                    image={halloweenImage}
+                    title="Spook! Longhorn Halloween"
+                    rarity="Rare"
+                    likes="3.3"
+                    shares="1.1k"
+                    completes="8.4k"
+                    category="Halloween"
+                />
+                </Grid2>
+                <Grid2 size={3}>
+                <QuestCard
+                    image={filmFestivalImage}
+                    title="Follow the Fall Film Festival"
+                    rarity="Rare"
+                    likes="1.7k"
+                    shares="0.3k"
+                    completes="2.2k"
+                    category="Fall"
+                />
+                </Grid2>
+                <Grid2 size={3}>
+                <QuestCard
+                    image={footballImage}
+                    title="Fight Florida at Home"
+                    rarity="Rare"
+                    likes="4.4k"
+                    shares="2.2k"
+                    completes="10k"
+                    category="Football"
+                />
+                </Grid2>
+                <Grid2 size={3}>
+                <QuestCard
+                    image={lawnImage}
+                    title="Lounge on the Lawn in Fall"
+                    rarity="Rare"
+                    likes="3.3k"
+                    shares="1.2k"
+                    completes="7.6k"
+                    category="Fall"
+                />
+                </Grid2>
+            </Grid2>
         </div>
         <div className="main-content" style={{marginLeft: '100px', marginRight: '100px'}}>
             <Typography variant="h4" align="left" gutterBottom>
