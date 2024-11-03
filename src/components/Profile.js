@@ -78,7 +78,7 @@ function Profile() {
               <div>
                 <Flame color="orange" size={30} style={{ marginRight: '5px' }} />
                 <span style={{ fontSize: '1.4em', fontWeight: 'bold'}}>35</span>
-                <span style={{ marginLeft: '4px', fontSize: '0.9em'}}>quests completed</span>
+                <span style={{ marginLeft: '4px', fontSize: '0.9em'}}>daily streak</span>
               </div>
             </Typography>
 
