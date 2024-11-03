@@ -17,7 +17,10 @@ app.get("*", (req, res) => {
 	res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
-app.use(cors())
+app.use(cors({ 
+	origin: "https://side-quest-frontend.onrender.com/", 
+	credentials: true 
+   }));
 app.use(express.json())
 app.use("/users", users)
 
