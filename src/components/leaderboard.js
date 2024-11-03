@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { Box, Card, CardContent, Typography, Avatar, Tabs, Tab } from '@mui/material';
 import userPfp from '../images/userPfp.jpeg';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+const theme = createTheme({
+    typography: {
+        fontFamily: 'Mulish', // Specify your desired font family
+    },
+});
 
 const userPoints = 6996;
 
@@ -22,8 +29,9 @@ const Leaderboard = () => {
     const listItems = getListItems(value);
 
     return (
+        <ThemeProvider theme={theme}>
         <Box sx={{ maxWidth: '50%', mx: 'auto', mt: 4, bgcolor: '#81F2FF50', height: '100px' }}>
-            <Card sx={{ display: 'flex', alignItems: 'center', padding: 2, mb: 2, bgcolor: '#81F2FF', height: '100%' }}>
+            <Card sx={{ display: 'flex', alignItems: 'center', padding: 2, mb: 2, bgcolor: '#d6f4f9', height: '100%' }}>
                 <Avatar src={userPfp} sx={{ height: '100%', width: 'auto', aspectRatio: '1/1', mr: 2, bgcolor: 'grey.300' }}>A</Avatar>
                 <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
                     <Box sx={{ flexGrow: 1 }}>
@@ -44,12 +52,12 @@ const Leaderboard = () => {
                         </Box>
                     </Box>
                     <Box sx={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
-                        <Typography sx={{fontSize:'4rem'}}> {userPoints} </Typography>
+                        <Typography style = {{fontFamily: "Mulish"}} sx={{fontSize:'4rem'}}> {userPoints} </Typography>
                     </Box>
                 </Box>
             </Card>
 
-            <Card sx={{ bgcolor: '#81F2FF50' }}>
+            <Card sx={{ bgcolor: '#FFFFFF25' }}>
                 <CardContent>
                     <Tabs font='Mulish' value={value} onChange={handleChange} indicatorColor="primary" textColor="primary" variant="fullWidth">
                         <Tab label="Friends" />
@@ -63,7 +71,7 @@ const Leaderboard = () => {
                             justifyContent: 'space-around',
                             alignItems: 'flex-end', // Align cards to the bottom for the podium effect
                             mt: 2,
-                            bgcolor: '#81F2FF75',
+                            bgcolor: '#81F2FF50',
                             height: '200px', // Adjust this value for the height of the containing rectangle
                             position: 'relative' // Optional, for further layout adjustments if needed
                         }}
@@ -79,7 +87,7 @@ const Leaderboard = () => {
                         ))}
                     </Box>
 
-                    <Box sx={{ mt: 2, maxHeight: '300px', overflowY: 'auto', bgcolor: '#F6D2F660' }}> {/* Fixed height and scroll */}
+                    <Box sx={{ mt: 2, maxHeight: '300px', overflowY: 'auto', bgcolor: '#ffffff50' }}> {/* Fixed height and scroll */}
                         {listItems.map((item, index) => (
                             <ListItem
                                 key={index}
@@ -94,6 +102,7 @@ const Leaderboard = () => {
                 </CardContent>
             </Card>
         </Box>
+        </ThemeProvider>
     );
 };
 
@@ -120,13 +129,18 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
                 position: 'absolute',
                 bottom: 0,
                 width: '100%',
+                boxShadow: username === '1st Place User' || username === 'YOU' ? `0 0 5px ${'gold'}, 0 0 10px ${'gold'}, 0 0 15px ${'gold'}` :
+                        username === '2nd Place User' ? `0 0 5px ${'silver'}, 0 0 10px ${'silver'}, 0 0 15px ${'silver'}` :
+                        username === '3rd Place User' ? `0 0 5px ${'#cd7f32'}, 0 0 10px ${'#cd7f32'}, 0 0 15px ${'#cd7f32'}` : undefined,
                 height: username === '1st Place User' || username === 'YOU' ? '110px' :
-                    username === '2nd Place User' ? '90px' :
+                        username === '2nd Place User' ? '90px' :
                         username === '3rd Place User' ? '70px' : '0px',
                 bgcolor: username === '1st Place User' || username === 'YOU' ? 'gold' :
-                    username === '2nd Place User' ? 'silver' :
+                        username === '2nd Place User' ? 'silver' :
                         username === '3rd Place User' ? '#cd7f32' : 'transparent',
-                zIndex: 0
+                zIndex: 0,
+                borderTopLeftRadius: '16px',
+                borderTopRightRadius: '16px'
             }}
         />
 
@@ -135,11 +149,11 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
             src={imgSrc}
             sx={{
                 position: 'absolute', // Position the avatar absolutely
-                top: username === '1st Place User' || username === 'YOU' ? '-50px' :
-                    username === '2nd Place User' ? '-30px' :
-                        username === '3rd Place User' ? '-10px' : '0px',
-                width: 60,
-                height: 60,
+                top: username === '1st Place User' || username === 'YOU' ? '-60px' :
+                    username === '2nd Place User' ? '-40px' :
+                    username === '3rd Place User' ? '-20px' : '0px',
+                width: 80,
+                height: 80,
                 zIndex: 1
             }}
         />
@@ -166,7 +180,7 @@ const ListItem = ({ rank, username, score, isHighlighted }) => (
             alignItems: 'center',
             p: 1,
             mb: 1,
-            bgcolor: isHighlighted ? '#369eff' : '#81F2FF75',
+            bgcolor: isHighlighted ? '#a3e5ff' : '#a3e5ff25',
             borderRadius: 1,
             fontWeight: isHighlighted ? 'bold' : 'normal',
             justifyContent: 'space-between', // Added for spacing
