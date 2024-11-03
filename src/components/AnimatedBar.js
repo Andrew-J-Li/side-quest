@@ -53,7 +53,8 @@ const AnimatedBar = ({ max, percentage, rank, label }) => {
             left: '50%', // Center horizontally
             transform: 'translateX(-50%)', // Adjust for centering
             display: isHovered && isAnimated ? 'block' : 'none', // Show text only on hover and when animated
-            color: '#000'
+            color: '#000',
+            fontFamily: 'Mulish, sans-serif',
           }}
           className="percentage-text"
         >
@@ -64,6 +65,7 @@ const AnimatedBar = ({ max, percentage, rank, label }) => {
         component="div"
         align="center"
         sx={{
+          fontFamily: 'Mulish, sans-serif',
         }}
       >
         {label}
