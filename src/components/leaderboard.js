@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Box, Card, CardContent, Typography, Avatar, Tabs, Tab } from '@mui/material';
-import userPfp from '../images/userPfp.jpeg';
+import { Box, Card, CardContent, Tabs, Tab, Typography, Avatar, Button, Dialog, DialogTitle, DialogContent } from '@mui/material';
+import userPfp from '../images/user-pfp.webp';
+import aerialView from '../images/ut-aerial.webp';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { MapPin } from 'lucide-react';
 
 const theme = createTheme({
     typography: {
@@ -9,15 +11,85 @@ const theme = createTheme({
     },
 });
 
-const userPoints = 6996;
-const userName = 'Long4Head';
+const userPoints = 6321;
+const userName = 'Gon';
 
 const Leaderboard = () => {
+    const [open, setOpen] = useState(false);
     const [value, setValue] = useState(0); // State to manage the selected tab
+    const [currentLeaderboard, setCurrentLeaderboard] = useState([]);
+    const [dialogTitle, setDialogTitle] = useState('');
+    const [avatarColorsState, setAvatarColorsState] = useState([]);
+
+    const handleOpen = (leaderboard, title) => {
+        setCurrentLeaderboard(leaderboard);
+        setDialogTitle(title);
+        const colors = leaderboard.map(() => {
+            return avatarColors[Math.floor(Math.random() * avatarColors.length)];
+        });
+        setAvatarColorsState(colors);
+        setOpen(true);
+    };
+    const avatarColors = [
+        '#007BFF',  // Blue
+        '#28A745',  // Green
+        '#FFC107',  // Amber
+        '#17A2B8',  // Cyan
+        '#6F42C1',  // Purple
+        '#FF6F61',  // Coral
+        '#FFCE54',  // Gold
+        '#E83E8C',  // Pink
+        '#343A40',  // Dark Gray
+        '#6C757D'   // Light Gray
+    ];    
 
     const handleChange = (event, newValue) => {
         setValue(newValue); // Update the selected tab
     };
+
+    const handleClose = () => {
+        setOpen(false);     // Close the modal
+    };
+
+    // Example top ten leaderboard data
+    const leaderboardGDC = [
+        { rank: 1, username: 'Leslie', time: '12:15' },
+        { rank: 2, username: 'Sam', time: '12:01' },
+        { rank: 3, username: 'Taylor', time: '11:53' },
+        { rank: 4, username: 'Matt', time: '11:45' },
+        { rank: 5, username: 'Marry', time: '11:32' },
+        { rank: 6, username: 'Alex', time: '11:25' },
+        { rank: 7, username: 'Aki', time: '11:11' },
+        { rank: 8, username: 'Chris', time: '11:05' },
+        { rank: 9, username: 'Guts', time: '10:48' },
+        { rank: 10, username: 'Hu Tao', time: '10:45' },
+    ];
+    
+    const leaderboardJEN = [
+        { rank: 1, username: 'Robin', time: '12:30' },
+        { rank: 2, username: 'Jordan', time: '12:10' },
+        { rank: 3, username: 'Chris', time: '11:55' },
+        { rank: 4, username: 'Blake', time: '11:50' },
+        { rank: 5, username: 'Jamie', time: '11:40' },
+        { rank: 6, username: 'Alexis', time: '11:20' },
+        { rank: 7, username: 'Riley', time: '11:15' },
+        { rank: 8, username: 'Morgan', time: '11:02' },
+        { rank: 9, username: 'Taylor', time: '10:50' },
+        { rank: 10, username: 'Avery', time: '10:43' },
+    ];
+    
+    const leaderboardQUAD = [
+        { rank: 1, username: 'Jamie', time: '13:00' },
+        { rank: 2, username: 'Casey', time: '12:20' },
+        { rank: 3, username: 'Skylar', time: '11:58' },
+        { rank: 4, username: 'Taylor', time: '11:47' },
+        { rank: 5, username: 'Jordan', time: '11:33' },
+        { rank: 6, username: 'Hayden', time: '11:28' },
+        { rank: 7, username: 'Cameron', time: '11:14' },
+        { rank: 8, username: 'Finley', time: '11:09' },
+        { rank: 9, username: 'Drew', time: '10:55' },
+        { rank: 10, username: 'Charlie', time: '10:50' },
+    ];
 
     const users = [
         value === 0 ? {username: 'Hu Tao', score: userPoints + 3, imgSrc: 'https://wallpapers.com/images/hd/cool-anime-girl-pfp-hu-tao-6cjtrrhyvr2g24ik.jpg'} :
@@ -33,78 +105,268 @@ const Leaderboard = () => {
 
     return (
         <ThemeProvider theme={theme}>
-        <Box sx={{ maxWidth: '50%', mx: 'auto', mt: 4, bgcolor: '#81F2FF50', height: '100px' }}>
-            <Card variant="outlined" sx={{ display: 'flex', alignItems: 'center', padding: 2, mb: 2, height: '100%' }}>
-                <Avatar src={userPfp} sx={{ height: '100%', width: 'auto', aspectRatio: '1/1', mr: 2, bgcolor: 'grey.300' }}>A</Avatar>
-                <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
-                    <Box sx={{ flexGrow: 1 }}>
-                        <Typography sx={{fontSize:"1.5rem"}} variant="h6">Long4Head</Typography>
-                        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                            <Typography style={{ fontFamily: "Mulish" }} variant="body2">
-                                <strong style={{ fontSize: '1.2rem' }}>#</strong>
-                                <strong style={{ fontSize: '1.2rem' }}>4</strong> Friends
-                            </Typography>
-                            <Typography style={{ fontFamily: "Mulish" }} variant="body2">
-                                <strong style={{ fontSize: '1.2rem' }}>#</strong>
-                                <strong style={{ fontSize: '1.2rem' }}>1</strong> Nearby
-                            </Typography>
-                            <Typography style={{ fontFamily: "Mulish" }} variant="body2">
-                                <strong style={{ fontSize: '1.2rem' }}>#</strong>
-                                <strong style={{ fontSize: '1.2rem' }}>1069</strong> Global
-                            </Typography>
-                        </Box>
-                    </Box>
-                    <Box sx={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
-                        <Typography style = {{fontFamily: "Mulish"}} sx={{fontSize:'4rem'}}> {userPoints} </Typography>
-                    </Box>
-                </Box>
-            </Card>
-
-            <Card variant="outlined" sx={{ }}>
+        <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="flex-start"
+            sx={{
+                padding: 4,
+                pt: 0,
+                gap: 4,      // Space between the two main boxes
+                maxWidth: '100%',
+            }}
+        >
+            {/* Campus Map Card */}
+            <Card
+                variant="outlined"
+                sx={{
+                    borderRadius: "10px",
+                    width: "50%",      // Set width to balance the layout
+                    padding: 2,
+                }}
+            >
                 <CardContent>
-                    <Tabs font='Mulish' value={value} onChange={handleChange} indicatorColor="primary" textColor="primary" variant="fullWidth">
-                        <Tab label="Friends" />
-                        <Tab label="Nearby" />
-                        <Tab label="Global" />
-                    </Tabs>
-
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'space-around',
-                            alignItems: 'flex-end', // Align cards to the bottom for the podium effect
-                            mt: 2,
-                            bgcolor: '#81F2FF50',
-                            height: '210px', // Adjust this value for the height of the containing rectangle
-                            position: 'relative' // Optional, for further layout adjustments if needed
-                        }}
+                    <Typography
+                        fontFamily="Mulish"
+                        variant="h5"
+                        component="div"
+                        align="center"
+                        sx={{ marginBottom: 3 }}
                     >
-                        {users.map((user, index) => (
-                            <UserCard
-                                key={index}
-                                username={user.username}
-                                score={user.score}
-                                imgSrc={user.imgSrc}
-                                isHighlighted={user.isHighlighted}
-                            />
-                        ))}
+                        <b>Time Spent at Buildings on Campus</b>
+                    </Typography>
+                    <Box sx={{ position: 'relative', display: 'flex', justifyContent: 'center', width: '100%' }}>
+                        <img
+                            src={aerialView}
+                            alt="Campus Map"
+                            style={{ width: '100%', height: 'auto', borderRadius: '10px' }}
+                        />
+                        <Button
+                            onClick={() => handleOpen(leaderboardGDC, "GDC Gladiator Leaderboard")}
+                            sx={{
+                                position: 'absolute',
+                                top: '35%',   // Set to the desired spot on the image
+                                left: '20%',  // Adjust based on where you want the pin on the map
+                                transform: 'translate(-50%, -50%)', // Center pin on the coordinates
+                                width: '2%',  // Scale button size with image
+                                aspectRatio: '1',
+                                borderRadius: '50%',
+                                backgroundColor: 'rgba(255, 255, 255, 0)', // Transparent background
+                                color: 'white',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                                },
+                            }}
+                        >
+                            <MapPin size={32} fill="dark-red" color="white" />
+                        </Button>
+                        <Button
+                                onClick={() => handleOpen(leaderboardJEN, "Jendy's Jampion Leaderboard")}
+                            sx={{
+                                position: 'absolute',
+                                top: '25%',   // Set to the desired spot on the image
+                                left: '33%',  // Adjust based on where you want the pin on the map
+                                transform: 'translate(-50%, -50%)', // Center pin on the coordinates
+                                width: '2%',  // Scale button size with image
+                                aspectRatio: '1',
+                                borderRadius: '50%',
+                                backgroundColor: 'rgba(255, 255, 255, 0)', // Transparent background
+                                color: 'white',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                                },
+                            }}
+                        >
+                            <MapPin size={32} fill="dark-red" color="white" />
+                        </Button>
+                        <Button
+                            onClick={() => handleOpen(leaderboardQUAD, "Quad Questmaster Leaderboard")}
+                            sx={{
+                                position: 'absolute',
+                                top: '60%',   // Set to the desired spot on the image
+                                left: '64%',  // Adjust based on where you want the pin on the map
+                                transform: 'translate(-50%, -50%)', // Center pin on the coordinates
+                                width: '2%',  // Scale button size with image
+                                aspectRatio: '1',
+                                borderRadius: '50%',
+                                backgroundColor: 'rgba(255, 255, 255, 0)', // Transparent background
+                                color: 'white',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                                },
+                            }}
+                        >
+                            <MapPin size={32} fill="dark-red" color="white" />
+                        </Button>
+                        <Button
+                            onClick={() => handleOpen(leaderboardQUAD, "DKR Dominator Leaderboard")}
+                            sx={{
+                                position: 'absolute',
+                                top: '25%',   // Set to the desired spot on the image
+                                left: '4%',  // Adjust based on where you want the pin on the map
+                                transform: 'translate(-50%, -50%)', // Center pin on the coordinates
+                                width: '2%',  // Scale button size with image
+                                aspectRatio: '1',
+                                borderRadius: '50%',
+                                backgroundColor: 'rgba(255, 255, 255, 0)', // Transparent background
+                                color: 'white',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                                },
+                            }}
+                        >
+                            <MapPin size={32} fill="dark-red" color="white" />
+                        </Button>
+                        <Button
+                            onClick={() => handleOpen(leaderboardJEN, "Tower Titan Leaderboard")}
+                            sx={{
+                                position: 'absolute',
+                                top: '35%',   // Set to the desired spot on the image
+                                left: '50%',  // Adjust based on where you want the pin on the map
+                                transform: 'translate(-50%, -50%)', // Center pin on the coordinates
+                                width: '2%',  // Scale button size with image
+                                aspectRatio: '1',
+                                borderRadius: '50%',
+                                backgroundColor: 'rgba(255, 255, 255, 0)', // Transparent background
+                                color: 'white',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                                },
+                            }}
+                        >
+                            <MapPin size={32} fill="dark-red" color="white" />
+                        </Button>
+                        <Button
+                            onClick={() => handleOpen(leaderboardQUAD, "Undefeated Unionist Leaderboard")}
+                            sx={{
+                                position: 'absolute',
+                                top: '35%',   // Set to the desired spot on the image
+                                left: '70%',  // Adjust based on where you want the pin on the map
+                                transform: 'translate(-50%, -50%)', // Center pin on the coordinates
+                                width: '2%',  // Scale button size with image
+                                aspectRatio: '1',
+                                borderRadius: '50%',
+                                backgroundColor: 'rgba(255, 255, 255, 0)', // Transparent background
+                                color: 'white',
+                                '&:hover': {
+                                    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                                },
+                            }}
+                        >
+                            <MapPin size={32} fill="dark-red" color="white" />
+                        </Button>
                     </Box>
-
-                    <Box sx={{ mt: 2, maxHeight: '300px', overflowY: 'auto', bgcolor: '#ffffff50' }}> {/* Fixed height and scroll */}
-                        {listItems.map((item, index) => (
-                            <ListItem
-                                key={index}
-                                rank={item.username == userName && value === 2 ? 1069 : index + 4} // Adding rank as a prop
-                                username={item.username}
-                                isHighlighted={item.username == userName} // Highlight if the item is {userName}
-                                score={item.score}
-                            />
-                        ))}
-                    </Box>
-
                 </CardContent>
             </Card>
+
+            {/* Profile & Leaderboard Card */}
+            <Box sx={{ width: '45%', display: 'flex', flexDirection: 'column', gap: 2 }}>
+                {/* Profile Card */}
+                <Card variant="outlined" sx={{ padding: 2, borderRadius: '10px', mb: 2 }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <Avatar
+                            src={userPfp}
+                            sx={{
+                                height: 80,
+                                width: 80,
+                                bgcolor: 'grey.300',
+                                mr: 2,
+                            }}
+                        >
+                            A
+                        </Avatar>
+                        <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+                            <Typography sx={{ fontSize: "1.5rem" }} variant="h6">Gon</Typography>
+                            <Box sx={{ display: 'flex', gap: 1 }}>
+                                <Typography variant="body2"><strong>#4</strong> Friends</Typography>
+                                <Typography variant="body2"><strong>#1</strong> Nearby</Typography>
+                                <Typography variant="body2"><strong>#1071</strong> Global</Typography>
+                            </Box>
+                        </Box>
+                        <Typography sx={{ fontSize: '3rem', fontWeight: 'bold', ml: 'auto' }}>{userPoints}</Typography>
+                    </Box>
+                </Card>
+
+                {/* Leaderboard Card */}
+                <Card variant="outlined" sx={{ borderRadius: '10px' }}>
+                    <CardContent>
+                        <Tabs
+                            fontFamily="Mulish"
+                            value={value}
+                            onChange={handleChange}
+                            indicatorColor="secondary"
+                            textColor="secondary"
+                            variant="fullWidth"
+                        >
+                            <Tab label="Friends" />
+                            <Tab label="Nearby" />
+                            <Tab label="Global" />
+                        </Tabs>
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'space-around',
+                                alignItems: 'flex-end',
+                                mt: 2,
+                                height: '210px',
+                                position: 'relative',
+                            }}
+                        >
+                            {users.map((user, index) => (
+                                <UserCard
+                                    key={index}
+                                    username={user.username}
+                                    score={user.score}
+                                    imgSrc={user.imgSrc}
+                                    isHighlighted={user.isHighlighted}
+                                />
+                            ))}
+                        </Box>
+
+                        <Box sx={{ mt: 2, maxHeight: '300px', overflowY: 'auto', bgcolor: '#ffffff50' }}>
+                            {listItems.map((item, index) => (
+                                <ListItem
+                                    key={index}
+                                    rank={item.username === userName && value === 2 ? 1071 : index + 4}
+                                    username={item.username}
+                                    isHighlighted={item.username === userName}
+                                    score={item.score}
+                                />
+                            ))}
+                        </Box>
+                    </CardContent>
+                </Card>
+            </Box>
+            <Dialog open={open} onClose={handleClose} maxWidth="xs" fullWidth>
+                <DialogTitle>{dialogTitle}</DialogTitle>
+                <DialogContent>
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                        {currentLeaderboard.map((entry, index) => {
+                            return (
+                                <Box
+                                    key={index}
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        p: 1,
+                                        bgcolor: index % 2 === 0 ? 'grey.100' : 'white',
+                                        borderRadius: 1,
+                                    }}
+                                >
+                                    <Typography sx={{ fontWeight: 'bold', width: '10%' }}>{entry.rank}</Typography>
+                                    <Avatar sx={{ bgcolor: avatarColorsState[index], mr: 2 }}>
+                                        {entry.username[0]}
+                                    </Avatar>
+                                    <Typography sx={{ flex: 1 }}>{entry.username}</Typography>
+                                    <Typography>{entry.time}</Typography>
+                                </Box>
+                            );
+                        })}
+                    </Box>
+                </DialogContent>
+            </Dialog>
         </Box>
+
         </ThemeProvider>
     );
 };
@@ -132,13 +394,13 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
                 position: 'absolute',
                 bottom: 0,
                 width: '100%',
-                boxShadow: username === '1st Place User' || username == userName || username === 'HuangJ' ? `-2px -2px 4px ${'gold'}, 2px -2px 4px ${'gold'}, -2px -2px 4px ${'gold'}` :
+                boxShadow: username === '1st Place User' || username === userName || username === 'HuangJ' ? `-2px -2px 4px ${'gold'}, 2px -2px 4px ${'gold'}, -2px -2px 4px ${'gold'}` :
                         username === '2nd Place User' || username === 'Hu Tao' ? `-2px -2px 4px ${'silver'}, 2px -2px 4px ${'silver'}, -2px -2px 4px ${'silver'}` :
                         username === '3rd Place User' || username === 'Guts' ? `-2px -2px 4px ${'#cd7f32'}, 2px -2px 4px ${'#cd7f32'}, -2px -2px 4px ${'#cd7f32'}` : undefined,
-                height: username === '1st Place User' || username == userName || username === 'HuangJ' ? '110px' :
+                height: username === '1st Place User' || username === userName || username === 'HuangJ' ? '110px' :
                         username === '2nd Place User' || username === 'Hu Tao' ? '90px' :
                         username === '3rd Place User' || username === 'Guts' ? '70px' : '0px',
-                bgcolor: username === '1st Place User' || username == userName || username === 'HuangJ' ? 'gold' :
+                bgcolor: username === '1st Place User' || username === userName || username === 'HuangJ' ? 'gold' :
                         username === '2nd Place User' || username === 'Hu Tao' ? 'silver' :
                         username === '3rd Place User' || username === 'Guts' ? '#cd7f32' : 'transparent',
                 zIndex: 0,
@@ -152,7 +414,7 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
             src={imgSrc}
             sx={{
                 position: 'absolute', // Position the avatar absolutely
-                top: username === '1st Place User' || username == userName || username === 'HuangJ' ? '-65px' :
+                top: username === '1st Place User' || username === userName || username === 'HuangJ' ? '-65px' :
                     username === '2nd Place User' || username === 'Hu Tao' ? '-45px' :
                     username === '3rd Place User' || username === 'Guts' ? '-25px' : '0px',
                 width: 80,
@@ -163,7 +425,7 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
 
         {/* New Box for spacing the text */}
         <Box sx={{
-            mb: username === '1st Place User' || username == userName || username === 'HuangJ' ? '45px' :
+            mb: username === '1st Place User' || username === userName || username === 'HuangJ' ? '45px' :
                 username === '2nd Place User' || username === 'Hu Tao' ? '25px' :
                 username === '3rd Place User' || username === 'Guts' ? '5px' : '0px', zIndex: 1
         }}> {/* Padding Top set to 1 (you can adjust this value) */}
@@ -192,7 +454,7 @@ const ListItem = ({ rank, username, score, isHighlighted }) => (
         <Typography variant="body2" sx={{ fontWeight: 'bold', mr: 2 }}>
             {rank}
         </Typography>
-        <Avatar src={username == userName ? userPfp : undefined} sx={{ bgcolor: 'grey.300', mr: 1 }}>A</Avatar>
+        <Avatar src={username === userName ? userPfp : undefined} sx={{ bgcolor: 'grey.300', mr: 1 }}>A</Avatar>
         <Typography style={{ fontFamily: "Mulish" }} variant="body2">{username}</Typography>
         <Typography style={{ fontFamily: "Mulish" }} variant="body2" sx={{ marginLeft: 'auto', mr: 2 }}>{score}</Typography> {/* Added to show score */}
     </Box>
