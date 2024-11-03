@@ -16,7 +16,7 @@ import "@fontsource/mulish";
 import { Link } from 'react-router-dom';
 import { CardActionArea } from "@mui/material";
 
-const pages = ['Quests', 'Leaderboard'];
+const pages = ['Quests', 'Leaderboard', 'Login'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
