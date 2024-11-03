@@ -5,6 +5,10 @@ import gatesDellImage from '../images/gates-dell-complex.jpg';
 import utTowerImage from '../images/ut-tower.png';
 import clarkFieldImage from '../images/clark.jpg';
 import jamailPoolImage from '../images/jamail.png';
+import turtlePondImage from '../images/turtle.png';
+import bartonImage from '../images/barton.jpg';
+import bassHallImage from '../images/bass.jpg';
+import historyMuseumImage from '../images/historyMuseum.jpg';
 import { Heart, Share2, MessageCircle } from 'lucide-react';
 
 const Quests = () => {
@@ -128,9 +132,9 @@ const Quests = () => {
                             fontSize="20px"
                             style={{ margin: '0', padding: '0' }}
                         >
-                        <b style={{ fontSize: '14px' }}>{likes}</b>&nbsp;<span style={{ fontSize: '14px' }}>likes</span>&nbsp;
-                        <b style={{ fontSize: '14px' }}>{shares}</b>&nbsp;<span style={{ fontSize: '14px' }}>recruits</span>&nbsp;
-                        <b style={{ fontSize: '14px' }}>{completes}</b>&nbsp;<span style={{ fontSize: '14px' }}>completes</span>
+                        <b style={{ fontSize: '12.8px' }}>{likes}</b>&nbsp;<span style={{ fontSize: '12.8px' }}>likes</span>&nbsp;
+                        <b style={{ fontSize: '12.8px' }}>{shares}</b>&nbsp;<span style={{ fontSize: '12.8px' }}>recruits</span>&nbsp;
+                        <b style={{ fontSize: '12.8px' }}>{completes}</b>&nbsp;<span style={{ fontSize: '12.8px' }}>completes</span>
                         </Typography>
                     </div>
 
@@ -277,6 +281,13 @@ const Quests = () => {
         <div className="main-content" style={{marginLeft: '100px', marginRight: '100px'}}>
             <Typography variant="h4" align="left" gutterBottom>
                 <b style={{fontFamily: 'Mulish, sans-serif'}}>
+                    Limited Time Quests
+                </b>
+            </Typography>
+        </div>
+        <div className="main-content" style={{marginLeft: '100px', marginRight: '100px'}}>
+            <Typography variant="h4" align="left" gutterBottom>
+                <b style={{fontFamily: 'Mulish, sans-serif'}}>
                     All Quests
                 </b>
             </Typography>
@@ -324,6 +335,50 @@ const Quests = () => {
                     shares="2.2k"
                     completes="21.3k"
                     category="Athletics"
+                />
+                </Grid2>
+                <Grid2 size={3}>
+                <QuestCard
+                    image={turtlePondImage}
+                    title="Relax at the Turtle Pond"
+                    rarity="Common"
+                    likes="40.1k"
+                    shares="14.7k"
+                    completes="55.1k"
+                    category="General"
+                />
+                </Grid2>
+                <Grid2 size={3}>
+                <QuestCard
+                    image={bartonImage}
+                    title="Spend an Afternoon at Barton"
+                    rarity="Common"
+                    likes="33.1k"
+                    shares="12.6k"
+                    completes="43.1k"
+                    category="General"
+                />
+                </Grid2>
+                <Grid2 size={3}>
+                <QuestCard
+                    image={bassHallImage}
+                    title="Attend a Concert at Bass Hall"
+                    rarity="Rare"
+                    likes="8.1k"
+                    shares="1.2k"
+                    completes="15.4k"
+                    category="Art"
+                />
+                </Grid2>
+                <Grid2 size={3}>
+                <QuestCard
+                    image={historyMuseumImage}
+                    title="Time-Travel at Texas Museum"
+                    rarity="Rare"
+                    likes="3.1k"
+                    shares="0.5k"
+                    completes="7.2k"
+                    category="Art"
                 />
                 </Grid2>
                 {/* Add more quest cards as needed */}
