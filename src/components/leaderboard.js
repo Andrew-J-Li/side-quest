@@ -20,11 +20,13 @@ const Leaderboard = () => {
     };
 
     const users = [
-        { username: '2nd Place User', score: value === 0 ? userPoints + 3 : value === 1 ? userPoints - 96 : userPoints + 4769, imgSrc: 'user_b.jpg' },
+        value === 0 ? {username: 'Hu Tao', score: userPoints + 3, imgSrc: 'https://wallpapers.com/images/hd/cool-anime-girl-pfp-hu-tao-6cjtrrhyvr2g24ik.jpg'} :
+            { username: '2nd Place User', score: value === 0 ? userPoints + 3 : value === 1 ? userPoints - 96 : userPoints + 4769, imgSrc: 'user_b.jpg' },
         value === 1 ? { username: userName, score: userPoints, imgSrc: userPfp, isHighlighted: true } : 
             value === 2 ? { username: '1st Place User', score: userPoints + 5015, imgSrc: 'user_a.jpg' } :
-            { username: '1st Place User', score: userPoints + 306, imgSrc: 'user_a.jpg'},
-        { username: '3rd Place User', score: value === 0 ? userPoints + 1 : value === 1 ? userPoints - 102 : userPoints + 4743, imgSrc: 'user_c.jpg' },
+            { username: 'HuangJ', score: userPoints + 306, imgSrc: 'https://th.bing.com/th/id/OIP.91GgEkbkpDaQ-Vv-7JeXGAHaE6?rs=1&pid=ImgDetMain'},
+        value === 0 ? { username: 'Guts', score: value === 0 ? userPoints + 1 : value === 1 ? userPoints - 102 : userPoints + 4743, imgSrc: 'https://i.pinimg.com/736x/d6/0b/60/d60b60df9147a88c660bc1452385c3a7.jpg' }:
+            { username: '3rd Place User', score: value === 0 ? userPoints + 1 : value === 1 ? userPoints - 102 : userPoints + 4743, imgSrc: 'user_c.jpg'}
     ];
 
     const listItems = getListItems(value);
@@ -73,7 +75,7 @@ const Leaderboard = () => {
                             alignItems: 'flex-end', // Align cards to the bottom for the podium effect
                             mt: 2,
                             bgcolor: '#81F2FF50',
-                            height: '200px', // Adjust this value for the height of the containing rectangle
+                            height: '210px', // Adjust this value for the height of the containing rectangle
                             position: 'relative' // Optional, for further layout adjustments if needed
                         }}
                     >
@@ -130,15 +132,15 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
                 position: 'absolute',
                 bottom: 0,
                 width: '100%',
-                boxShadow: username === '1st Place User' || username == userName ? `-2px -2px 4px ${'gold'}, 2px -2px 4px ${'gold'}, -2px -2px 4px ${'gold'}` :
-                        username === '2nd Place User' ? `-2px -2px 4px ${'silver'}, 2px -2px 4px ${'silver'}, -2px -2px 4px ${'silver'}` :
-                        username === '3rd Place User' ? `-2px -2px 4px ${'#cd7f32'}, 2px -2px 4px ${'#cd7f32'}, -2px -2px 4px ${'#cd7f32'}` : undefined,
-                height: username === '1st Place User' || username == userName ? '110px' :
-                        username === '2nd Place User' ? '90px' :
-                        username === '3rd Place User' ? '70px' : '0px',
-                bgcolor: username === '1st Place User' || username == userName ? 'gold' :
-                        username === '2nd Place User' ? 'silver' :
-                        username === '3rd Place User' ? '#cd7f32' : 'transparent',
+                boxShadow: username === '1st Place User' || username == userName || username === 'HuangJ' ? `-2px -2px 4px ${'gold'}, 2px -2px 4px ${'gold'}, -2px -2px 4px ${'gold'}` :
+                        username === '2nd Place User' || username === 'Hu Tao' ? `-2px -2px 4px ${'silver'}, 2px -2px 4px ${'silver'}, -2px -2px 4px ${'silver'}` :
+                        username === '3rd Place User' || username === 'Guts' ? `-2px -2px 4px ${'#cd7f32'}, 2px -2px 4px ${'#cd7f32'}, -2px -2px 4px ${'#cd7f32'}` : undefined,
+                height: username === '1st Place User' || username == userName || username === 'HuangJ' ? '110px' :
+                        username === '2nd Place User' || username === 'Hu Tao' ? '90px' :
+                        username === '3rd Place User' || username === 'Guts' ? '70px' : '0px',
+                bgcolor: username === '1st Place User' || username == userName || username === 'HuangJ' ? 'gold' :
+                        username === '2nd Place User' || username === 'Hu Tao' ? 'silver' :
+                        username === '3rd Place User' || username === 'Guts' ? '#cd7f32' : 'transparent',
                 zIndex: 0,
                 borderTopLeftRadius: '16px',
                 borderTopRightRadius: '16px'
@@ -150,9 +152,9 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
             src={imgSrc}
             sx={{
                 position: 'absolute', // Position the avatar absolutely
-                top: username === '1st Place User' || username == userName ? '-60px' :
-                    username === '2nd Place User' ? '-40px' :
-                    username === '3rd Place User' ? '-20px' : '0px',
+                top: username === '1st Place User' || username == userName || username === 'HuangJ' ? '-65px' :
+                    username === '2nd Place User' || username === 'Hu Tao' ? '-45px' :
+                    username === '3rd Place User' || username === 'Guts' ? '-25px' : '0px',
                 width: 80,
                 height: 80,
                 zIndex: 1
@@ -161,9 +163,9 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
 
         {/* New Box for spacing the text */}
         <Box sx={{
-            mb: username === '1st Place User' || username == userName ? '45px' :
-                username === '2nd Place User' ? '25px' :
-                    username === '3rd Place User' ? '5px' : '0px', zIndex: 1
+            mb: username === '1st Place User' || username == userName || username === 'HuangJ' ? '45px' :
+                username === '2nd Place User' || username === 'Hu Tao' ? '25px' :
+                username === '3rd Place User' || username === 'Guts' ? '5px' : '0px', zIndex: 1
         }}> {/* Padding Top set to 1 (you can adjust this value) */}
             <Typography style={{ fontFamily: "Mulish" }} variant="body1" sx={{ zIndex: 1 }}>{score}</Typography>
             <Typography style={{ fontFamily: "Mulish" }} variant="body2" sx={{ zIndex: 1 }}>{username}</Typography>
