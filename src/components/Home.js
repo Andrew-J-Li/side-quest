@@ -35,6 +35,14 @@ const HomePage = () => {
           title: "Visited the top of the PMA!",
           description: "Almost got some people to jump.",
         },
+        {
+            id: 2,
+            friendName: "HuangJ",
+            profilePicture: "https://th.bing.com/th/id/OIP.91GgEkbkpDaQ-Vv-7JeXGAHaE6?rs=1&pid=ImgDetMain", // Replace with actual image URL
+            postImage: "https://th.bing.com/th/id/OIP.9f16tR6bmO7vCUfw9UCrJwHaFs?w=278&h=204&c=7&r=0&o=5&dpr=2&pid=1.7",
+            title: "On the real engineering major",
+            description: "I've concluded that computer science is superior to any engineering major",
+          },
         // Additional posts...
     ];      
 
