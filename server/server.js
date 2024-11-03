@@ -39,19 +39,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions)); 
 
-app.set("trust proxy", 1); // trust first proxy
-app.use(
-  session({
-    secret: process.env.JWT_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      secure: true,
-      sameSite: "none",
-    },
-  })
-);
-
 app.use(express.json())
 app.use("/users", users)
 
