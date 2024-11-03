@@ -1,11 +1,13 @@
 {
   "files": {
     "main.css": "/side-quest/static/css/main.33662f68.css",
-    "main.js": "/side-quest/static/js/main.e9c0fb1d.js",
+    "main.js": "/side-quest/static/js/main.6c1dbdef.js",
     "static/js/453.bab25dc2.chunk.js": "/side-quest/static/js/453.bab25dc2.chunk.js",
     "static/media/jamail.png": "/side-quest/static/media/jamail.dfc832f995f05457b646.png",
+    "static/media/swim-meet.JPG": "/side-quest/static/media/swim-meet.4ece9d331b1be02cbe9e.JPG",
     "static/media/clark.jpg": "/side-quest/static/media/clark.a1ce3d4a491eea2236a4.jpg",
     "static/media/ut-map.png": "/side-quest/static/media/ut-map.4033bc90cc793d938ac2.png",
+    "static/media/pma-top.JPG": "/side-quest/static/media/pma-top.1198b1551cfe7a6dea4f.JPG",
     "static/media/football.png": "/side-quest/static/media/football.fe7be1b3a836d567b0fc.png",
     "static/media/turtle.png": "/side-quest/static/media/turtle.7c3929e2ee545be5fd11.png",
     "static/media/halloween.png": "/side-quest/static/media/halloween.86e49a6ecb74d2947724.png",
@@ -30,11 +32,11 @@
     "static/media/mulish-vietnamese-400-normal.woff2": "/side-quest/static/media/mulish-vietnamese-400-normal.8bd1d3d480d5d9d741ae.woff2",
     "index.html": "/side-quest/index.html",
     "main.33662f68.css.map": "/side-quest/static/css/main.33662f68.css.map",
-    "main.e9c0fb1d.js.map": "/side-quest/static/js/main.e9c0fb1d.js.map",
+    "main.6c1dbdef.js.map": "/side-quest/static/js/main.6c1dbdef.js.map",
     "453.bab25dc2.chunk.js.map": "/side-quest/static/js/453.bab25dc2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.33662f68.css",
-    "static/js/main.e9c0fb1d.js"
+    "static/js/main.6c1dbdef.js"
   ]
 }
