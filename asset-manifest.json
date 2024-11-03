@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/side-quest/static/css/main.33662f68.css",
-    "main.js": "/side-quest/static/js/main.f600e835.js",
+    "main.js": "/side-quest/static/js/main.e9c0fb1d.js",
     "static/js/453.bab25dc2.chunk.js": "/side-quest/static/js/453.bab25dc2.chunk.js",
     "static/media/jamail.png": "/side-quest/static/media/jamail.dfc832f995f05457b646.png",
     "static/media/clark.jpg": "/side-quest/static/media/clark.a1ce3d4a491eea2236a4.jpg",
@@ -30,11 +30,11 @@
     "static/media/mulish-vietnamese-400-normal.woff2": "/side-quest/static/media/mulish-vietnamese-400-normal.8bd1d3d480d5d9d741ae.woff2",
     "index.html": "/side-quest/index.html",
     "main.33662f68.css.map": "/side-quest/static/css/main.33662f68.css.map",
-    "main.f600e835.js.map": "/side-quest/static/js/main.f600e835.js.map",
+    "main.e9c0fb1d.js.map": "/side-quest/static/js/main.e9c0fb1d.js.map",
     "453.bab25dc2.chunk.js.map": "/side-quest/static/js/453.bab25dc2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.33662f68.css",
-    "static/js/main.f600e835.js"
+    "static/js/main.e9c0fb1d.js"
   ]
 }
