@@ -5,7 +5,7 @@ const MongoTest = () => {
 
 	useEffect(() => {
 		async function getUsers() {
-			const response = await fetch(`http://localhost:5050/users/`)
+			const response = await fetch(`https://side-quest-backend.onrender.com/users/`)
 
 			if(!response.ok){
 				const message = `An error ocurred: ${response.statusText}`
