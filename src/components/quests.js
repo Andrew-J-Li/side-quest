@@ -185,7 +185,7 @@ const Quests = () => {
     return (
         <>
         <div style={{ paddingLeft: '100px', paddingRight: '100px', display: 'flex', justifyContent: 'center', marginBottom: '20px'}}>
-            <div className="main-content" style={{boxShadow: `0 0 20px ${arcadeColors.glow}`, textAlign: 'left', width: 'fit-content'}}>
+            <div className="main-content" style={{borderRadius: '20px', boxShadow: `0 0 20px ${arcadeColors.glow}`, textAlign: 'left', width: 'fit-content'}}>
                 <Typography variant="h4" align="left" gutterBottom>
                     <b style={{fontFamily: 'Mulish, sans-serif'}}>Daily Quest</b>
                 </Typography>
