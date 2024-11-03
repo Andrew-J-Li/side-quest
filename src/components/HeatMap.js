@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Box } from '@mui/material';
 import utMap from '../images/ut-map.png'; // Import your map image
 
