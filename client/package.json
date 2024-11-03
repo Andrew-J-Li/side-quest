@@ -1,7 +1,7 @@
 {
   "name": "side-quest",
   "version": "0.1.0",
-  "homepage": "https://andrew-j-li.github.io/side-quest/",
+  "homepage": "https://side-quest-frontend.onrender.com/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.13.3",
