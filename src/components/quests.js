@@ -1,13 +1,24 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Card, CardMedia, CardContent, Typography, Chip, Box, Button } from '@mui/material';
 import '../components/quests.css';
 import gatesDellImage from '../images/gates-dell-complex.jpg';
 import utTowerImage from '../images/ut-tower.png';
 import heartIcon from '../images/heart.png';
 import shareIcon from '../images/share.png';
-import checkIcon from '../images/check.png';
 
 const Quests = () => {
+    useEffect(() => {
+        const link = document.createElement('link');
+        link.href = 'https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap';
+        link.rel = 'stylesheet';
+        document.head.appendChild(link);
+
+        // Cleanup the effect if needed
+        return () => {
+            document.head.removeChild(link);
+        };
+    }, []);
+
     const scrollContainerRef = useRef(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
@@ -150,10 +161,10 @@ const Quests = () => {
 
     return (
         <>
-        <div className="main-content" style={{marginTop: 40}}>
+        <div className="main-content" style={{textAlign: 'left'}}>
             
-            <Typography variant="h4" align="center" gutterBottom>
-                <b>Daily Quest</b>
+            <Typography variant="h4" align="left" gutterBottom>
+                <b style={{marginLeft: 215, fontFamily: 'Mulish, sans-serif'}}>Daily Quest</b>
             </Typography>
             <div 
                 className="daily-quests-container"
@@ -166,13 +177,13 @@ const Quests = () => {
                 <img
                     src={gatesDellImage}
                     style={{
-                        width: '500px',
-                        height: '300px',
+                        width: '510px',
+                        height: '310px',
                         objectFit: 'cover',
                         borderRadius: '25px 0 0 25px',
                     }}
                 />
-                <div style={{width: '500px', height: '300px', border: 'solid 1px gray', borderRadius: '0 25px 25px 0'}}>
+                <div style={{width: '500px', height: '310px', border: 'solid 1px gray', borderRadius: '0 25px 25px 0'}}>
                     <p style={{margin: 10, fontWeight: 'bold', fontSize: '20px'}}>
                         Visit the Gates-Dell Complex
                     </p>
@@ -182,9 +193,10 @@ const Quests = () => {
                                 label='Rare'
                                 color="warning"
                                 style={{
-                                    width: '50px',
+                                    width: '55px',
                                     height: '25px',
-                                    fontSize: '12px'
+                                    fontSize: '12px',
+                                    fontFamily: 'Mulish, sans-serif'
                                 }}
                             />
                         </div>
@@ -195,23 +207,24 @@ const Quests = () => {
                                     backgroundColor: 'lightblue',
                                     width: '125px',
                                     height: '25px',
-                                    fontSize: '12px'
+                                    fontSize: '12px',
+                                    fontFamily: 'Mulish, sans-serif'
                                 }}
                             />
                         </div>
 
                     </div>
-                    <p style={{textAlign: 'left', marginLeft: 15, marginRight: 15}}>Explore the iconic Gates-Dell Complex (GDC), home to UT Austin's Computer Science department. This modern architectural marvel houses cutting-edge research labs, collaborative spaces, and the technical heart of campus. Complete this quest by visiting the building and discovering its innovative learning environments.</p>
+                    <p style={{textAlign: 'left', marginLeft: 15, marginRight: 15, fontFamily: 'Mulish, sans-serif'}}>Explore the iconic Gates-Dell Complex (GDC), home to UT Austin's Computer Science department. This modern architectural marvel houses cutting-edge research labs, collaborative spaces, and the technical heart of campus. Complete this quest by visiting the building and discovering its innovative learning environments.</p>
 
                     <hr style={{marginTop: 10}}>
                     </hr>
-                    <div style={{textAlign: 'left', marginLeft: 20}}>
+                    <div style={{textAlign: 'left', marginLeft: 20, fontFamily: 'Mulish, sans-serif'}}>
                         <b>3.1k</b> likes <b>1.1k</b> Recruits <b>11.4k</b> Completions
                     </div>
                     <hr style={{ marginBottom: 0 }} />
                     <Box display="flex" justifyContent="space-evenly"
                         style={{
-                            marginLeft: 20, marginRight: 20, marginTop: 10
+                            marginLeft: 20, marginRight: 20, marginTop: 0
                         }}
                     >
                         <div>
@@ -248,7 +261,9 @@ const Quests = () => {
         </div>
         <div className="main-content">
             <Typography variant="h4" align="center" gutterBottom>
-                All Quests
+                <b style={{fontFamily: 'Mulish, sans-serif'}}>
+                    All Quests
+                </b>
             </Typography>
             <div 
                 className="quests-container"
