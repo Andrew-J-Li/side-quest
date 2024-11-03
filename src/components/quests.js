@@ -138,22 +138,32 @@ const Quests = () => {
                         color={rarity === "Rare" ? "warning" : "primary"} 
                         className="quest-rarity"
                     />
-                    <Box display="flex" justifyContent="space-between" mt={2}>
-                        <Typography variant="body2" color="text.secondary">
-                            <span className="icon">❤️</span>3.1k
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            <span className="icon">🔁</span>0.4k
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            <span className="icon">▶️</span>7.1k
-                        </Typography>
-                    </Box>
-                    <ActionButtons 
-                        onLike={handleCardLike}
-                        onShare={handleCardShare}
-                        onComplete={handleCardComplete}
-                    />
+                    <div styles={{display: 'flex', justifyContent: 'center'}}>
+                        <Button 
+                            variant="text" 
+                            color="primary" 
+                            style={{width: '100px'}}
+                        >
+                            <img
+                                src={heartIcon}
+                                style = {{
+                                    width: '40px'
+                                }}
+                            />
+                        </Button>
+                        <Button 
+                            variant="text" 
+                            color="secondary"
+                            style={{width: '100px'}}
+                        >
+                            <img
+                                src={shareIcon}
+                                style = {{
+                                    width: '40px'
+                                }}
+                            />
+                    </Button>
+                    </div>
                 </CardContent>
             </Card>
         );
@@ -164,7 +174,7 @@ const Quests = () => {
         <div className="main-content" style={{textAlign: 'left'}}>
             
             <Typography variant="h4" align="left" gutterBottom>
-                <b style={{marginLeft: 215, fontFamily: 'Mulish, sans-serif'}}>Daily Quest</b>
+                <b style={{marginLeft: 120, fontFamily: 'Mulish, sans-serif'}}>Daily Quest</b>
             </Typography>
             <div 
                 className="daily-quests-container"
@@ -177,13 +187,13 @@ const Quests = () => {
                 <img
                     src={gatesDellImage}
                     style={{
-                        width: '510px',
-                        height: '310px',
+                        width: '600px',
+                        height: '340px',
                         objectFit: 'cover',
                         borderRadius: '25px 0 0 25px',
                     }}
                 />
-                <div style={{width: '500px', height: '310px', border: 'solid 1px gray', borderRadius: '0 25px 25px 0'}}>
+                <div style={{width: '600px', height: '340px', border: 'solid 1px gray', borderRadius: '0 25px 25px 0'}}>
                     <p style={{margin: 10, fontWeight: 'bold', fontSize: '20px'}}>
                         Visit the Gates-Dell Complex
                     </p>
@@ -215,7 +225,21 @@ const Quests = () => {
 
                     </div>
                     <p style={{textAlign: 'left', marginLeft: 15, marginRight: 15, fontFamily: 'Mulish, sans-serif'}}>Explore the iconic Gates-Dell Complex (GDC), home to UT Austin's Computer Science department. This modern architectural marvel houses cutting-edge research labs, collaborative spaces, and the technical heart of campus. Complete this quest by visiting the building and discovering its innovative learning environments.</p>
-
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+                        <Button
+                            variant='contained'
+                            style={{ margin: 0, color: 'green' }}
+                        >
+                            <b
+                                style={{
+                                    color: 'white',
+                                    fontFamily: 'Mulish, sans-serif'
+                                }}
+                            >
+                                Start
+                            </b>
+                        </Button>
+                    </div>
                     <hr style={{marginTop: 10}}>
                     </hr>
                     <div style={{textAlign: 'left', marginLeft: 20, fontFamily: 'Mulish, sans-serif'}}>
