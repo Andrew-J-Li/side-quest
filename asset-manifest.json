@@ -1,9 +1,11 @@
 {
   "files": {
     "main.css": "/side-quest/static/css/main.07f79754.css",
-    "main.js": "/side-quest/static/js/main.5129293f.js",
+    "main.js": "/side-quest/static/js/main.e45658d6.js",
     "static/js/453.bab25dc2.chunk.js": "/side-quest/static/js/453.bab25dc2.chunk.js",
+    "static/media/ut-map.png": "/side-quest/static/media/ut-map.4033bc90cc793d938ac2.png",
     "static/media/gates-dell-complex.jpg": "/side-quest/static/media/gates-dell-complex.736c3c118f910e14dcc9.jpg",
+    "static/media/userPfp.jpeg": "/side-quest/static/media/userPfp.9980a5f9b285330346b6.jpeg",
     "static/media/mulish-latin-ext-400-normal.woff": "/side-quest/static/media/mulish-latin-ext-400-normal.e82160238de80c263103.woff",
     "static/media/mulish-latin-400-normal.woff": "/side-quest/static/media/mulish-latin-400-normal.bd9f266c4bb13cd9920c.woff",
     "static/media/mulish-latin-400-normal.woff2": "/side-quest/static/media/mulish-latin-400-normal.d2ff49c90a9ec133bdc2.woff2",
@@ -16,11 +18,11 @@
     "static/media/mulish-vietnamese-400-normal.woff2": "/side-quest/static/media/mulish-vietnamese-400-normal.8bd1d3d480d5d9d741ae.woff2",
     "index.html": "/side-quest/index.html",
     "main.07f79754.css.map": "/side-quest/static/css/main.07f79754.css.map",
-    "main.5129293f.js.map": "/side-quest/static/js/main.5129293f.js.map",
+    "main.e45658d6.js.map": "/side-quest/static/js/main.e45658d6.js.map",
     "453.bab25dc2.chunk.js.map": "/side-quest/static/js/453.bab25dc2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.07f79754.css",
-    "static/js/main.5129293f.js"
+    "static/js/main.e45658d6.js"
   ]
 }
