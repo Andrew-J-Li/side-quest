@@ -202,14 +202,15 @@ function Profile() {
       >
         <CardContent>
           <Typography fontFamily="mulish" variant="h6" component="div">
-            <span style={{ fontSize: '1.4em', fontWeight: 'bold' }}>20% </span> of your time is spent in the GDC
+            <span style={{ fontSize: '1.4em', fontWeight: 'bold'}}>20% </span> of your time is spent in the GDC
           </Typography>
           <Box
             sx={{
+              marginTop: 3,
               display: 'flex',
-              justifyContent: 'space-between', // Add even spacing between bars
-              width: '100%', // Full width for alignment
-              gap: '10px', // Add space between each bar
+              justifyContent: 'space-between',
+              width: '100%',
+              gap: '10px',
               fontFamily: 'Mulish, sans-serif'
             }}
           >
