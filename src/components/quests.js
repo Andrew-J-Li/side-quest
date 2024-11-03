@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Card, CardMedia, CardContent, Typography, Chip, Box, Button } from '@mui/material';
 import '../components/quests.css';
 import gatesDellImage from '../images/gates-dell-complex.jpg';
+import utTowerImage from '../images/ut-tower.png';
 import heartIcon from '../images/heart.png';
 import shareIcon from '../images/share.png';
 
@@ -60,52 +61,93 @@ const Quests = () => {
         scrollContainerRef.current.scrollLeft = scrollLeft - walk;
     };
 
-    const QuestCard = ({ image, title, rarity }) => {
+    const QuestCard = ({ image, title, rarity, likes, shares, completes, category}) => {
         return (
-            <Card className="quest-card">
+            <Card className="quest-card" style={{ height: '380px' }}>
                 <CardMedia
                     component="img"
                     height="140"
                     image={image}
                     alt={title}
+                    style={{ objectFit: 'cover', height: '150px', margin: 0, padding: 0 }}
                 />
-                <CardContent>
-                    <Typography 
-                        variant="h5" 
-                        component="div" 
-                        className="quest-title"
-                        gutterBottom
-                    >
-                        {title}
-                    </Typography>
-                    <Chip 
-                        label={rarity} 
-                        color={rarity === "Rare" ? "warning" : "primary"} 
-                        className="quest-rarity"
-                    />
-                    <div style={{marginTop: '5px', display: 'flex', justifyContent: 'space-around'}}>
-                        <Button 
-                            variant="text" 
-                            color="primary" 
+                <CardContent style={{marginLeft: 5, padding: 5 }}>
+                    <div>
+                        <Typography
+                            fontFamily="Mulish, sans-serif"
+                            fontSize="20px"
+                            fontWeight="bold"
+                            style={{ margin: '0', padding: '0' }}
                         >
+                            {title}
+                        </Typography>
+                        <div>
+                        <Chip 
+                            label={rarity}
+                            color={rarity === "Rare" ? "warning" : "primary"}
+                            style={{
+                                margin: 5,
+                                height: '25px',
+                                fontSize: '12px',
+                                fontFamily: 'Mulish, sans-serif'
+                            }}
+                        />
+                        <Chip 
+                            label={category}
+                            style={{
+                                backgroundColor: 'lightblue',
+                                margin: 5,
+                                height: '25px',
+                                fontSize: '12px',
+                                fontFamily: 'Mulish, sans-serif'
+                            }}
+                        />
+                        </div>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '10px'}}>
+                        <Button
+                            variant='contained'
+                        >
+                            <b
+                                style={{
+                                    color: 'white',
+                                    fontFamily: 'Mulish, sans-serif'
+                                }}
+                            >
+                                Start
+                            </b>
+                        </Button>
+                    </div>
+
+                    <hr style={{ margin: '5px 0', border: '1px solid #ccc' }} />
+
+                    <div>
+                        <Typography
+                            fontFamily="Mulish, sans-serif"
+                            fontSize="20px"
+                            style={{ margin: '0', padding: '0' }}
+                        >
+                        <b style={{ fontSize: '14px' }}>{likes}</b>&nbsp;<span style={{ fontSize: '14px' }}>likes</span>&nbsp;
+                        <b style={{ fontSize: '14px' }}>{shares}</b>&nbsp;<span style={{ fontSize: '14px' }}>shares</span>&nbsp;
+                        <b style={{ fontSize: '14px' }}>{completes}</b>&nbsp;<span style={{ fontSize: '14px' }}>completes</span>
+                        </Typography>
+                    </div>
+
+                    <hr style={{ margin: '5px 0', border: '1px solid #ccc' }} />
+                
+                    <div style={{ display: 'flex', justifyContent: 'center', margin: 0, padding: 0 }}>
+                        <Button variant="text" color="primary" style={{ width: '100px' }}>
                             <img
                                 src={heartIcon}
-                                alt='Heart'
-                                style = {{
-                                    width: '40px'
-                                }}
+                                style={{ height: '40px', width: 'auto' }}
+                                alt="Heart Icon"
                             />
                         </Button>
-                        <Button 
-                            variant="text" 
-                            color="secondary"
-                        >
+                        <Button variant="text" color="secondary" style={{ width: '100px' }}>
                             <img
                                 src={shareIcon}
-                                alt='Share'
-                                style = {{
-                                    width: '40px'
-                                }}
+                                style={{ height: '40px', width: 'auto' }}
+                                alt="Share Icon"
                             />
                         </Button>
                     </div>
@@ -113,6 +155,7 @@ const Quests = () => {
             </Card>
         );
     };
+
 
     return (
         <>
@@ -248,6 +291,19 @@ const Quests = () => {
                     image={gatesDellImage} 
                     title="Visit the Gates-Dell Complex"
                     rarity="Rare"
+                    likes="3.1k"
+                    shares="1.1k"
+                    completes="11.4k"
+                    category="Computer Science"
+                />
+                <QuestCard
+                    image={utTowerImage}
+                    title="Visit the UT Tower"
+                    rarity="Common"
+                    likes="14.7k"
+                    shares="5.5k"
+                    completes="25.2k"
+                    category="General"
                 />
                 {/* Add more quest cards as needed */}
             </div>
