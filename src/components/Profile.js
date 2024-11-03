@@ -1,11 +1,12 @@
 import React from 'react';
-import { Box, Card, CardContent, Typography, Tooltip } from '@mui/material';
+import { Box, Card, CardContent, Typography, Tooltip, Avatar } from '@mui/material';
 import TokenTwoToneIcon from '@mui/icons-material/TokenTwoTone';
 import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
 import GDCGladiatorIcon from './GDCGladiatorIcon';
 import AnimatedBar from './AnimatedBar';
 import HeatMap from './HeatMap';
+import userPfp from '../images/user-pfp.webp';
 import { Flame, Scroll, Droplets, Ghost, Footprints } from 'lucide-react';
 
 
@@ -45,12 +46,20 @@ function Profile() {
 
           <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'left', padding: 0}}>
    
-            <div style={{display: 'flex'}}>
-              <AccountCircleTwoToneIcon sx={{ fontSize: '5rem'}} />
+            <div style={{display: 'flex', justifyContent: 'center'}}>
+              <Avatar
+                  src={userPfp}
+                  sx={{
+                      height: 50,
+                      width: 50,
+                      bgcolor: 'grey.300',
+                      margin: 'auto 0',
+                  }}
+              />
               <div style={{marginLeft: '10px', color: 'black'}}>
                 <Typography fontFamily="mulish" variant="h5" component="div" align="left" 
                 sx={{ fontSize: '1.5em', pt: 1.5, flexGrow: 1}}>
-                  <b>Zafir Nasim</b>
+                  <b>Gon Freecss</b>
                 </Typography>
                 <Typography fontFamily="mulish" variant="h6" align="left" gutterBottom sx={{ fontSize: '15px' }}>
                   Rank: <b>1,337</b>
