@@ -24,15 +24,15 @@ const Leaderboard = () => {
                 <Box>
                     <Typography variant="h6">Long4Head</Typography>
                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                        <Typography variant="body2">
+                        <Typography style={{fontFamily: "Mulish"}} variant="body2">
                             <strong style={{ fontSize: '1.2rem' }}>#</strong>
                             <strong style={{ fontSize: '1.2rem' }}>4</strong> Friends
                         </Typography>
-                        <Typography variant="body2">
+                        <Typography style={{fontFamily: "Mulish"}} variant="body2">
                             <strong style={{ fontSize: '1.2rem' }}>#</strong>
                             <strong style={{ fontSize: '1.2rem' }}>1</strong> Nearby
                         </Typography>
-                        <Typography variant="body2">
+                        <Typography style={{fontFamily: "Mulish"}} variant="body2">
                             <strong style={{ fontSize: '1.2rem' }}>#</strong>
                             <strong style={{ fontSize: '1.2rem' }}>1069</strong> Global
                         </Typography>
@@ -43,7 +43,7 @@ const Leaderboard = () => {
 
             <Card sx={{ bgcolor: '#F6D2F660' }}>
                 <CardContent>
-                    <Tabs value={value} onChange={handleChange} indicatorColor="primary" textColor="primary" variant="fullWidth">
+                    <Tabs font='Mulish' value={value} onChange={handleChange} indicatorColor="primary" textColor="primary" variant="fullWidth">
                         <Tab label="Friends" />
                         <Tab label="Nearby" />
                         <Tab label="Global" />
@@ -137,9 +137,11 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
         />
         
         {/* New Box for spacing the text */}
-        <Box sx={{ pt: 1, zIndex: 1 }}> {/* Padding Top set to 1 (you can adjust this value) */}
-            <Typography variant="body1" sx={{ zIndex: 1 }}>{score}</Typography>
-            <Typography variant="body2" sx={{ zIndex: 1 }}>{username}</Typography>
+        <Box sx={{mb: username === '1st Place User' || username === 'YOU' ? '45px' :
+                    username === '2nd Place User' ? '25px' :
+                        username === '3rd Place User' ? '5px' : '0px', zIndex: 1 }}> {/* Padding Top set to 1 (you can adjust this value) */}
+            <Typography style={{fontFamily: "Mulish"}} variant="body1" sx={{ zIndex: 1 }}>{score}</Typography>
+            <Typography style={{fontFamily: "Mulish"}} variant="body2" sx={{ zIndex: 1 }}>{username}</Typography>
         </Box>
     </Box>
 );
@@ -164,8 +166,8 @@ const ListItem = ({ rank, username, score, isHighlighted }) => (
             {rank}
         </Typography>
         <Avatar src={username === "YOU" ? userPfp : undefined} sx={{ bgcolor: 'grey.300', mr: 1 }}>A</Avatar>
-        <Typography variant="body2">{username}</Typography>
-        <Typography variant="body2" sx={{ marginLeft: 'auto', mr: 2 }}>{score}</Typography> {/* Added to show score */}
+        <Typography style={{fontFamily: "Mulish"}} variant="body2">{username}</Typography>
+        <Typography style={{fontFamily: "Mulish"}} variant="body2" sx={{ marginLeft: 'auto', mr: 2 }}>{score}</Typography> {/* Added to show score */}
     </Box>
 );
 
