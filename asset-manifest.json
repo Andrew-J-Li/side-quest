@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/side-quest/static/css/main.33662f68.css",
-    "main.js": "/side-quest/static/js/main.6c1dbdef.js",
+    "main.css": "/side-quest/static/css/main.12393870.css",
+    "main.js": "/side-quest/static/js/main.3a34e160.js",
     "static/js/453.bab25dc2.chunk.js": "/side-quest/static/js/453.bab25dc2.chunk.js",
     "static/media/jamail.png": "/side-quest/static/media/jamail.dfc832f995f05457b646.png",
     "static/media/swim-meet.JPG": "/side-quest/static/media/swim-meet.4ece9d331b1be02cbe9e.JPG",
@@ -14,12 +14,13 @@
     "static/media/barton.jpg": "/side-quest/static/media/barton.9b470104ea8dde9f10af.jpg",
     "static/media/ut-tower.png": "/side-quest/static/media/ut-tower.28324e485adf7aa55038.png",
     "static/media/filmFestival.png": "/side-quest/static/media/filmFestival.be74fbf1dde4c08844a2.png",
+    "static/media/ut-aerial.webp": "/side-quest/static/media/ut-aerial.4139f0aefebf32a04ceb.webp",
     "static/media/gates-dell-complex.jpg": "/side-quest/static/media/gates-dell-complex.736c3c118f910e14dcc9.jpg",
     "static/media/lawn.png": "/side-quest/static/media/lawn.29c8538b8ceeae6cf827.png",
     "static/media/historyMuseum.jpg": "/side-quest/static/media/historyMuseum.9c48ac3edfde816272fa.jpg",
     "static/media/gdc-gladiator.png": "/side-quest/static/media/gdc-gladiator.a6af92b7a4978b17fcd0.png",
     "static/media/bass.jpg": "/side-quest/static/media/bass.44f6db09ee4d82c758dd.jpg",
-    "static/media/userPfp.jpeg": "/side-quest/static/media/userPfp.9980a5f9b285330346b6.jpeg",
+    "static/media/user-pfp.webp": "/side-quest/static/media/user-pfp.95d32b2aa9a439ff854a.webp",
     "static/media/mulish-latin-ext-400-normal.woff": "/side-quest/static/media/mulish-latin-ext-400-normal.e82160238de80c263103.woff",
     "static/media/mulish-latin-400-normal.woff": "/side-quest/static/media/mulish-latin-400-normal.bd9f266c4bb13cd9920c.woff",
     "static/media/mulish-latin-400-normal.woff2": "/side-quest/static/media/mulish-latin-400-normal.d2ff49c90a9ec133bdc2.woff2",
@@ -31,12 +32,12 @@
     "static/media/mulish-cyrillic-400-normal.woff2": "/side-quest/static/media/mulish-cyrillic-400-normal.4f530bddab30dcdb4b4e.woff2",
     "static/media/mulish-vietnamese-400-normal.woff2": "/side-quest/static/media/mulish-vietnamese-400-normal.8bd1d3d480d5d9d741ae.woff2",
     "index.html": "/side-quest/index.html",
-    "main.33662f68.css.map": "/side-quest/static/css/main.33662f68.css.map",
-    "main.6c1dbdef.js.map": "/side-quest/static/js/main.6c1dbdef.js.map",
+    "main.12393870.css.map": "/side-quest/static/css/main.12393870.css.map",
+    "main.3a34e160.js.map": "/side-quest/static/js/main.3a34e160.js.map",
     "453.bab25dc2.chunk.js.map": "/side-quest/static/js/453.bab25dc2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.33662f68.css",
-    "static/js/main.6c1dbdef.js"
+    "static/css/main.12393870.css",
+    "static/js/main.3a34e160.js"
   ]
 }
