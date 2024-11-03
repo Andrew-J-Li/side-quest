@@ -72,7 +72,7 @@ const Quests = () => {
 
     const QuestCard = ({ image, title, rarity, likes, shares, completes, category}) => {
         return (
-            <Card className="quest-card" style={{ height: '380px', width: '295px' }}>
+            <Card className="quest-card" style={{ height: '380px', width: '295px', transition: 'transform 0.3s ease'}}>
                 <CardMedia
                     component="img"
                     height="140"
