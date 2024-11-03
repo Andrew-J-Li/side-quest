@@ -61,11 +61,9 @@ const AnimatedBar = ({ max, percentage, rank, label }) => {
         </Typography>
       </Box>
       <Typography
-        variant="h6"
         component="div"
         align="center"
         sx={{
-          marginTop: 1,
         }}
       >
         {label}
