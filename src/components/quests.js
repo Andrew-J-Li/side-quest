@@ -15,6 +15,109 @@ import footballImage from '../images/football.png';
 import lawnImage from '../images/lawn.png';
 import { Heart, Share2, MessageCircle } from 'lucide-react';
 
+const QuestCard = ({ image, title, rarity, likes, shares, completes, category}) => {
+    return (
+        <Card className="quest-card" style={{ height: '380px', width: '295px', transition: 'transform 0.3s ease'}}>
+            <CardMedia
+                component="img"
+                height="140"
+                image={image}
+                alt={title}
+                style={{ objectFit: 'cover', height: '150px', margin: 0, padding: 0 }}
+            />
+            <CardContent style={{marginLeft: 5, padding: 5 }}>
+                <div>
+                    <Typography
+                        fontFamily="Mulish, sans-serif"
+                        fontSize="18px"
+                        fontWeight="bold"
+                        style={{ margin: '0', padding: '0' }}
+                    >
+                        {title}
+                    </Typography>
+                    <div>
+                    <Chip 
+                        label={rarity}
+                        color={rarity === "Rare" ? "warning" : "primary"}
+                        style={{
+                            marginLeft: 0,
+                            marginRight: 2,
+                            height: '25px',
+                            fontSize: '12px',
+                            fontFamily: 'Mulish, sans-serif'
+                        }}
+                    />
+                    <Chip 
+                        label={category}
+                        style={{
+                            backgroundColor: 'lightblue',
+                            margin: 5,
+                            height: '25px',
+                            fontSize: '12px',
+                            fontFamily: 'Mulish, sans-serif'
+                        }}
+                    />
+                    </div>
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '10px'}}>
+                    <Button
+                        variant='contained'
+                    >
+                        <b
+                            style={{
+                                color: 'white',
+                                fontFamily: 'Mulish, sans-serif'
+                            }}
+                        >
+                            Start
+                        </b>
+                    </Button>
+                </div>
+
+                <hr style={{ margin: '5px 0', border: '1px solid #ccc' }} />
+
+                <div>
+                    <Typography
+                        fontFamily="Mulish, sans-serif"
+                        fontSize="20px"
+                        style={{ margin: '0', padding: '0' }}
+                    >
+                    <b style={{ fontSize: '12.8px' }}>{likes}</b>&nbsp;<span style={{ fontSize: '12.8px' }}>likes</span>&nbsp;
+                    <b style={{ fontSize: '12.8px' }}>{shares}</b>&nbsp;<span style={{ fontSize: '12.8px' }}>recruits</span>&nbsp;
+                    <b style={{ fontSize: '12.8px' }}>{completes}</b>&nbsp;<span style={{ fontSize: '12.8px' }}>completes</span>
+                    </Typography>
+                </div>
+
+                <hr style={{ margin: '5px 0', border: '1px solid #ccc' }} />
+            
+                <div style={{ display: 'flex', justifyContent: 'center', margin: 0, paddingTop: 5 }}>
+                    <Button 
+                        variant="text" 
+                        color="primary" 
+                        style={{width: '100px'}}
+                    >
+                        <Heart style={{ width: '40px' }} />
+                    </Button>
+                    <Button 
+                        variant="text" 
+                        color="primary" 
+                        style={{width: '100px'}}
+                    >
+                        <MessageCircle style={{ width: '40px' }} />
+                    </Button>
+                    <Button 
+                        variant="text" 
+                        color="primary" 
+                        style={{width: '100px'}}
+                    >
+                        <Share2 style={{ width: '40px' }} />
+                    </Button>
+                </div>
+            </CardContent>
+        </Card>
+    );
+};
+
 const Quests = () => {
     useEffect(() => {
         const link = document.createElement('link');
@@ -69,110 +172,6 @@ const Quests = () => {
         const walk = (x - startX) * 2;
         scrollContainerRef.current.scrollLeft = scrollLeft - walk;
     };
-
-    const QuestCard = ({ image, title, rarity, likes, shares, completes, category}) => {
-        return (
-            <Card className="quest-card" style={{ height: '380px', width: '295px', transition: 'transform 0.3s ease'}}>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={image}
-                    alt={title}
-                    style={{ objectFit: 'cover', height: '150px', margin: 0, padding: 0 }}
-                />
-                <CardContent style={{marginLeft: 5, padding: 5 }}>
-                    <div>
-                        <Typography
-                            fontFamily="Mulish, sans-serif"
-                            fontSize="18px"
-                            fontWeight="bold"
-                            style={{ margin: '0', padding: '0' }}
-                        >
-                            {title}
-                        </Typography>
-                        <div>
-                        <Chip 
-                            label={rarity}
-                            color={rarity === "Rare" ? "warning" : "primary"}
-                            style={{
-                                marginLeft: 0,
-                                marginRight: 2,
-                                height: '25px',
-                                fontSize: '12px',
-                                fontFamily: 'Mulish, sans-serif'
-                            }}
-                        />
-                        <Chip 
-                            label={category}
-                            style={{
-                                backgroundColor: 'lightblue',
-                                margin: 5,
-                                height: '25px',
-                                fontSize: '12px',
-                                fontFamily: 'Mulish, sans-serif'
-                            }}
-                        />
-                        </div>
-                    </div>
-                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '10px'}}>
-                        <Button
-                            variant='contained'
-                        >
-                            <b
-                                style={{
-                                    color: 'white',
-                                    fontFamily: 'Mulish, sans-serif'
-                                }}
-                            >
-                                Start
-                            </b>
-                        </Button>
-                    </div>
-
-                    <hr style={{ margin: '5px 0', border: '1px solid #ccc' }} />
-
-                    <div>
-                        <Typography
-                            fontFamily="Mulish, sans-serif"
-                            fontSize="20px"
-                            style={{ margin: '0', padding: '0' }}
-                        >
-                        <b style={{ fontSize: '12.8px' }}>{likes}</b>&nbsp;<span style={{ fontSize: '12.8px' }}>likes</span>&nbsp;
-                        <b style={{ fontSize: '12.8px' }}>{shares}</b>&nbsp;<span style={{ fontSize: '12.8px' }}>recruits</span>&nbsp;
-                        <b style={{ fontSize: '12.8px' }}>{completes}</b>&nbsp;<span style={{ fontSize: '12.8px' }}>completes</span>
-                        </Typography>
-                    </div>
-
-                    <hr style={{ margin: '5px 0', border: '1px solid #ccc' }} />
-                
-                    <div style={{ display: 'flex', justifyContent: 'center', margin: 0, paddingTop: 5 }}>
-                        <Button 
-                            variant="text" 
-                            color="primary" 
-                            style={{width: '100px'}}
-                        >
-                            <Heart style={{ width: '40px' }} />
-                        </Button>
-                        <Button 
-                            variant="text" 
-                            color="primary" 
-                            style={{width: '100px'}}
-                        >
-                            <MessageCircle style={{ width: '40px' }} />
-                        </Button>
-                        <Button 
-                            variant="text" 
-                            color="primary" 
-                            style={{width: '100px'}}
-                        >
-                            <Share2 style={{ width: '40px' }} />
-                        </Button>
-                    </div>
-                </CardContent>
-            </Card>
-        );
-    };
-
 
     return (
         <>
