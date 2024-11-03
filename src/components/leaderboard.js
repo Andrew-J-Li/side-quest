@@ -10,6 +10,7 @@ const theme = createTheme({
 });
 
 const userPoints = 6996;
+const userName = 'Long4Head';
 
 const Leaderboard = () => {
     const [value, setValue] = useState(0); // State to manage the selected tab
@@ -20,7 +21,7 @@ const Leaderboard = () => {
 
     const users = [
         { username: '2nd Place User', score: value === 0 ? userPoints + 3 : value === 1 ? userPoints - 96 : userPoints + 4769, imgSrc: 'user_b.jpg' },
-        value === 1 ? { username: 'YOU', score: userPoints, imgSrc: userPfp, isHighlighted: true } : 
+        value === 1 ? { username: userName, score: userPoints, imgSrc: userPfp, isHighlighted: true } : 
             value === 2 ? { username: '1st Place User', score: userPoints + 5015, imgSrc: 'user_a.jpg' } :
             { username: '1st Place User', score: userPoints + 306, imgSrc: 'user_a.jpg'},
         { username: '3rd Place User', score: value === 0 ? userPoints + 1 : value === 1 ? userPoints - 102 : userPoints + 4743, imgSrc: 'user_c.jpg' },
@@ -35,7 +36,7 @@ const Leaderboard = () => {
                 <Avatar src={userPfp} sx={{ height: '100%', width: 'auto', aspectRatio: '1/1', mr: 2, bgcolor: 'grey.300' }}>A</Avatar>
                 <Box sx={{ width: '100%', display: 'flex', alignItems: 'center' }}>
                     <Box sx={{ flexGrow: 1 }}>
-                        <Typography variant="h6">Long4Head</Typography>
+                        <Typography sx={{fontSize:"1.5rem"}} variant="h6">Long4Head</Typography>
                         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                             <Typography style={{ fontFamily: "Mulish" }} variant="body2">
                                 <strong style={{ fontSize: '1.2rem' }}>#</strong>
@@ -91,9 +92,9 @@ const Leaderboard = () => {
                         {listItems.map((item, index) => (
                             <ListItem
                                 key={index}
-                                rank={item.username === "YOU" && value === 2 ? 1069 : index + 4} // Adding rank as a prop
+                                rank={item.username == userName && value === 2 ? 1069 : index + 4} // Adding rank as a prop
                                 username={item.username}
-                                isHighlighted={item.username === "YOU"} // Highlight if the item is "YOU"
+                                isHighlighted={item.username == userName} // Highlight if the item is {userName}
                                 score={item.score}
                             />
                         ))}
@@ -129,13 +130,13 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
                 position: 'absolute',
                 bottom: 0,
                 width: '100%',
-                boxShadow: username === '1st Place User' || username === 'YOU' ? `0 0 5px ${'gold'}, 0 0 10px ${'gold'}, 0 0 15px ${'gold'}` :
-                        username === '2nd Place User' ? `0 0 5px ${'silver'}, 0 0 10px ${'silver'}, 0 0 15px ${'silver'}` :
-                        username === '3rd Place User' ? `0 0 5px ${'#cd7f32'}, 0 0 10px ${'#cd7f32'}, 0 0 15px ${'#cd7f32'}` : undefined,
-                height: username === '1st Place User' || username === 'YOU' ? '110px' :
+                boxShadow: username === '1st Place User' || username == userName ? `-2px -2px 4px ${'gold'}, 2px -2px 4px ${'gold'}, -2px -2px 4px ${'gold'}` :
+                        username === '2nd Place User' ? `-2px -2px 4px ${'silver'}, 2px -2px 4px ${'silver'}, -2px -2px 4px ${'silver'}` :
+                        username === '3rd Place User' ? `-2px -2px 4px ${'#cd7f32'}, 2px -2px 4px ${'#cd7f32'}, -2px -2px 4px ${'#cd7f32'}` : undefined,
+                height: username === '1st Place User' || username == userName ? '110px' :
                         username === '2nd Place User' ? '90px' :
                         username === '3rd Place User' ? '70px' : '0px',
-                bgcolor: username === '1st Place User' || username === 'YOU' ? 'gold' :
+                bgcolor: username === '1st Place User' || username == userName ? 'gold' :
                         username === '2nd Place User' ? 'silver' :
                         username === '3rd Place User' ? '#cd7f32' : 'transparent',
                 zIndex: 0,
@@ -149,7 +150,7 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
             src={imgSrc}
             sx={{
                 position: 'absolute', // Position the avatar absolutely
-                top: username === '1st Place User' || username === 'YOU' ? '-60px' :
+                top: username === '1st Place User' || username == userName ? '-60px' :
                     username === '2nd Place User' ? '-40px' :
                     username === '3rd Place User' ? '-20px' : '0px',
                 width: 80,
@@ -160,7 +161,7 @@ const UserCard = ({ username, score, imgSrc, isHighlighted, sx }) => (
 
         {/* New Box for spacing the text */}
         <Box sx={{
-            mb: username === '1st Place User' || username === 'YOU' ? '45px' :
+            mb: username === '1st Place User' || username == userName ? '45px' :
                 username === '2nd Place User' ? '25px' :
                     username === '3rd Place User' ? '5px' : '0px', zIndex: 1
         }}> {/* Padding Top set to 1 (you can adjust this value) */}
@@ -189,7 +190,7 @@ const ListItem = ({ rank, username, score, isHighlighted }) => (
         <Typography variant="body2" sx={{ fontWeight: 'bold', mr: 2 }}>
             {rank}
         </Typography>
-        <Avatar src={username === "YOU" ? userPfp : undefined} sx={{ bgcolor: 'grey.300', mr: 1 }}>A</Avatar>
+        <Avatar src={username == userName ? userPfp : undefined} sx={{ bgcolor: 'grey.300', mr: 1 }}>A</Avatar>
         <Typography style={{ fontFamily: "Mulish" }} variant="body2">{username}</Typography>
         <Typography style={{ fontFamily: "Mulish" }} variant="body2" sx={{ marginLeft: 'auto', mr: 2 }}>{score}</Typography> {/* Added to show score */}
     </Box>
@@ -201,7 +202,7 @@ const ListItem = ({ rank, username, score, isHighlighted }) => (
 const getListItems = (value) => {
     let userList = [];
     if (value === 0) { // Assuming 0 corresponds to Friends
-        userList.push({ username: "YOU", score: userPoints });
+        userList.push({ username: userName, score: userPoints });
         for (let i = 0; i < 21; i++) {
             userList.push({ username: "User " + (i + 10).toString(36), score: userPoints - 1 - i * 127 })
         }
@@ -213,7 +214,7 @@ const getListItems = (value) => {
         for (let i = 0; i < 22; i++) {
             userList.push({ username: "User " + (i + 10).toString(36), score: userPoints + 4200 - i * 51})
         }
-        userList.push({ username: "YOU", score: userPoints });
+        userList.push({ username: userName, score: userPoints });
     }
     return userList;
 };
